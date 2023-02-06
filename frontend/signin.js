@@ -32,7 +32,7 @@ function signinUser() {
       if(data.msg=="Admin successfully login!"){
         window.location.href="http://127.0.0.1:5500/admin.html"
     }else if(data.msg=="Customer successfully login!"){
-        window.location.href="http://127.0.0.1:5500/customer.html" 
+      window.location.href="file:///C:/Users/gramp/OneDrive/Desktop/nodejstraining/Main%20Project-Arogya%20Pharmacy/frontend/customer.html"
     } else {
         document.getElementById("msg").innerHTML=data.msg;
 

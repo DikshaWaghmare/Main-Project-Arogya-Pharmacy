@@ -52,13 +52,37 @@ function reset(){
 }
 
 function viewAllCategory(){
-    fetch("http://localhost:3000/api/admin/viewAllCategory", {
-    method: "get"
-  })
-    try {
-        let result = categoryModel.find({});
-        console.log(result);
-    } catch (error) {
-        console.log(error);
-    }
+  fetch("http://localhost:3000/api/admin/viewAllCategory", {
+  method: "get",
+})
+.then((res) => res.text())
+.then((result) => {
+  document.getElementById("Category").innerHTML = result;
+  console.log(result);
+})
+.catch((error) => console.log(error));
+}
+
+function findAllCustomers(){
+  fetch("http://localhost:3000/api/admin/findAllCustomers", {
+  method: "get",
+})
+.then((res) => res.text())
+.then((result) => {
+  //document.getElementById("customers").innerHTML = result;
+  console.log(result);
+})
+.catch((error) => console.log(error));
+}
+
+function findAllOrders(){
+  fetch("http://localhost:3000/api/order/viewAllOrder", {
+  method: "get",
+})
+.then((res) => res.text())
+.then((result) => {
+  //document.getElementById("customers").innerHTML = result;
+  console.log(result);
+})
+.catch((error) => console.log(error));
 }

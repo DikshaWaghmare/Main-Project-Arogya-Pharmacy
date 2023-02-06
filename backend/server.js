@@ -3,7 +3,7 @@ let cors = require("cors");
 let dbConfig=require("./config/dbconfig");
 let CustRouter=require("./router/custRouter");
 let adminRouter=require("./router/adminRouter");
-let orderRouter=require("./router/order");
+let orderRouter=require("./router/orderRouter");
 //let bodyParser  = require("body-parser");
 
 let app=express();

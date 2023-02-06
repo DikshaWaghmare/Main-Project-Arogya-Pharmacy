@@ -45,7 +45,22 @@ let findAllCustomers = async (req, res) =>{
 } 
 }
 
+let findCustomerById= async(req,res)=>{
+//  let result=custId;
+//  res.json(result);
+    try{
+        let result=await custModel.findOne({_id:custId});
+        if(result==null){
+            res.json({"msg":"Record not present with customer id as "+custId})
+        }else {
+            res.json(result);
+        }
+        }
+        catch(err){
+            res.json({"msg":"Error generated "+err});
+        }
+}
 
 module.exports = {
-  signUp,signIn,findAllCustomers
+  signUp,signIn,findAllCustomers,findCustomerById
 };

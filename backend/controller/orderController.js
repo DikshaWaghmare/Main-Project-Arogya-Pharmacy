@@ -17,7 +17,7 @@ let addOrder=async(req,res)=>{
 let viewAllOrder = async (req, res) =>{
     try {
       let result = await orderModel.find({});
-      res.json(result);
+      res.send(JSON.stringify(result));
   } catch (error) {
       res.json(error);
   } 

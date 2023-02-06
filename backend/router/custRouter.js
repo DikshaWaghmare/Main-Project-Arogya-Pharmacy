@@ -11,4 +11,7 @@ router.post("/signIn",CustController.signIn);
 //http://localhost:3000/api/customer/findAllCustomers
 router.get("/findAllCustomers",CustController.findAllCustomers);
 
+//http://localhost:3000/api/customer/findCustomerById
+router.get("/findCustomerById",CustController.findCustomerById);
+
 module.exports=router;

@@ -1,4 +1,5 @@
 let categoryModel=require("../model/categoryModel");
+const customerModel = require("../model/customerModel");
 let productModel=require("../model/productModel")
 let addCategory=async(req,res)=>{
     let category = req.body;
@@ -31,7 +32,8 @@ let addCategory=async(req,res)=>{
  let viewAllCategory=async(req,res)=>{
     try {
         let result = await categoryModel.find({});
-        res.json(result);
+        let msg=JSON.stringify(result);
+        res.send(msg);
     } catch (error) {
         res.json(error);
     }
@@ -40,9 +42,20 @@ let addCategory=async(req,res)=>{
  let viewAllProduct=async(req,res)=>{
     try {
         let result = await productModel.find({});
-        res.json(result);
+        let msg=JSON.stringify(result);
+        res.send(msg);
     } catch (error) {
         res.json(error);
     }
  }
-module.exports={addCategory, addProduct, viewAllCategory,viewAllProduct}
+
+ let findAllCustomers = async (req, res) =>{
+  try {
+    let result = await customerModel.find({});
+    let msg=JSON.stringify(result);
+        res.send(msg);
+} catch (error) {
+    res.json(error);
+} 
+}
+module.exports={addCategory, addProduct, viewAllCategory,viewAllProduct,findAllCustomers}
