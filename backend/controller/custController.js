@@ -36,8 +36,16 @@ let signIn = async (req, res) => {
  
 };
 
+let findAllCustomers = async (req, res) =>{
+  try {
+    let result = await custModel.find({});
+    res.json(result);
+} catch (error) {
+    res.json(error);
+} 
+}
 
 
 module.exports = {
-  signUp,signIn
+  signUp,signIn,findAllCustomers
 };

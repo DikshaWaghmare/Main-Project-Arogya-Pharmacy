@@ -1,16 +1,13 @@
 let express=require("express");
 let router=express.Router();
-let adminController=require("../controller/adminController");
+let orderController=require("../controller/orderController");
 
-//http://localhost:3000/api/admin/addCategory
-router.post("/addCategory",adminController.addCategory);
+//http://localhost:3000/api/order/addOrder
+router.post("/addOrder",orderController.addOrder);
 
-//http://localhost:3000/api/admin/viewAllCategory
-router.get("/viewAllCategory",adminController.viewAllCategory);
+//http://localhost:3000/api/order/viewAllOrder
+router.get("/viewAllOrder",orderController.viewAllOrder);
 
-//http://localhost:3000/api/admin/addProduct
-router.post("/addProduct",adminController.addProduct);
-
-//http://localhost:3000/api/admin/viewAllProduct
-router.get("/viewAllProduct",adminController.viewAllProduct);
+//http://localhost:3000/api/order/viewOrderByCustId
+router.get("/viewOrderByCustId",orderController.viewOrderByCustId);
 module.exports=router;
