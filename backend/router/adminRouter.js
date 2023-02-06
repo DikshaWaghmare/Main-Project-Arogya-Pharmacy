@@ -1,0 +1,16 @@
+let express=require("express");
+let router=express.Router();
+let adminController=require("../controller/adminController");
+
+//http://localhost:3000/api/admin/addCategory
+router.post("/addCategory",adminController.addCategory);
+
+//http://localhost:3000/api/admin/viewAllCategory
+router.get("/viewAllCategory",adminController.viewAllCategory);
+
+//http://localhost:3000/api/admin/addProduct
+router.post("/addProduct",adminController.addProduct);
+
+//http://localhost:3000/api/admin/viewAllProduct
+router.get("/viewAllProduct",adminController.viewAllProduct);
+module.exports=router;
