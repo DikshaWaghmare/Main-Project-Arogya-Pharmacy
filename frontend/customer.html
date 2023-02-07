@@ -10,11 +10,14 @@
    
 </head>
 <body>
-    <div class="container text-center mt-5 border p-3">
-        <h3>Welcome to Customer page!</h3>
+    <div class="container mt-5 p-3">
+        <a class="btn btn-secondary" href="signIn.html">Go Back</a>
+        <h3 class="text-center">Welcome to Customer page!</h3>
     </div>
     <div class="container mt-3">
+        
         <input type="button" value="Customer Details" onclick="viewCustomer()"/><br><br>
+        <span id="cDetails"></span><br>
         <input type="button" value="View Categorys" onclick="viewAllCategory()"/><br>
         <p id="Category"></p>
         <input type="button" value="View Products" onclick="viewAllProducts()"/><br>
@@ -23,5 +26,6 @@
 
     </div>
     <script src="customer.js"></script>
+    <script src="signin.js"></script>
 </body>
 </html>

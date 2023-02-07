@@ -26,6 +26,7 @@ function order(){
     console.log(result);
   })
   .catch((error) => console.log(error));
+  reset();
 }
 function reset(){
     _id=document.getElementById("id").value=("");

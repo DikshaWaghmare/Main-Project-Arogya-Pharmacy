@@ -2,7 +2,6 @@ let mongoose = require("mongoose");
 mongoose.pluralize(null);
 
 let orderSchema=mongoose.Schema({
-    _id:Number,
     categoryId:{type:Number, required:true},
     productId:{type:Number, required:true},
     customerId:{type:Number, required:true},

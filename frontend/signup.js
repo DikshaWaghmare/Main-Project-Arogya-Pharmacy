@@ -1,5 +1,4 @@
 function storeCustomerInfo() {
-  var _idValue = document.getElementById("id").value;
   var nameValue = document.getElementById("name").value;
   var emailValue = document.getElementById("email").value;
   var passwordValue = document.getElementById("password").value;
@@ -25,7 +24,6 @@ function storeCustomerInfo() {
     typeOfUser = "customer";
   }
   var customers = {
-    _id: _idValue,
     name: nameValue,
     email: emailValue,
     password: passwordValue,
@@ -54,9 +52,6 @@ function storeCustomerInfo() {
 
 
 function reset() {
-  document.getElementById("email").value = "";
-  document.getElementById("password").value = "";
-  document.getElementById("id").value = "";
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
   document.getElementById("password").value = "";

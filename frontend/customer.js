@@ -25,12 +25,12 @@ function viewAllProducts(){
 }
 
 function viewCustomer(){
-  fetch("http://localhost:3000/api/customer/findCustomerById", {
+  fetch("http://localhost:3000/api/customer/signIn", {
     method: "get",
   })
   .then((res) => res.text())
   .then((result) => {
-    //document.getElementById("products").innerHTML = result;
+    document.getElementById("cDetails").innerHTML = Data;
     console.log(result);
   })
   .catch((error) => console.log(error));

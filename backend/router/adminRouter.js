@@ -14,7 +14,10 @@ router.post("/addProduct",adminController.addProduct);
 //http://localhost:3000/api/admin/viewAllProducts
 router.get("/viewAllProducts",adminController.viewAllProduct);
 
-//http://localhost:3000/api/admin/findAllCustomers
+//http://localhost:3000/api/admin/findAllCustomers 
 router.get("/findAllCustomers",adminController.findAllCustomers);
+
+//http://localhost:3000/api/admin/findAllAdmin
+router.get("/findAllAdmin",adminController.findAllAdmin);
 
 module.exports=router;

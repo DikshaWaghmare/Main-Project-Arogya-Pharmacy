@@ -9,14 +9,13 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container text-center mt-5 border p-3">
-        <h3>Welcome to order page!</h3>
+    <div class="container mt-5 p-3">
+        <a class="btn btn-secondary" href="customer.html">Go Back</a>
+        <h3 class="text-center">Welcome to order page!</h3>
     </div>
     <div class="container">
-        <form class="p-3 mx-auto mt-5 border" style="height: auto; width:400px">
+        <form class="p-3 mx-auto mt-3 border" style="height: auto; width:500px">
             <h5>Order Product!</h5>
-            <label>Enter id:</label>
-            <input type="number" id="id" /><br /><br />
             <label>Category Id:</label>
             <input type="number" id="cid" /><br /><br />
             <label>Product Id:</label>
@@ -30,8 +29,8 @@
             <label>Date Of Order:</label>
             <input type="date" id="doforder" /><br /><br />
             <span id="order"></span><br/><br/>
-            <input type="button" value="Order" onclick="order()"/>
-            <input type="button" value="Cancel" onclick="reset()"/><br/><br/>
+            <input type="button" value="Order" class="ms-5" onclick="order()"/>
+            <input type="button" value="Cancel" class="ms-5" onclick="reset()"/><br/><br/>
             <span id="cmsg"></span>
         </form>
     </div>

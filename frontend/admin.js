@@ -63,16 +63,29 @@ function viewAllCategory(){
 .catch((error) => console.log(error));
 }
 
+function viewAllProducts(){
+  fetch("http://localhost:3000/api/admin/viewAllProducts", {
+  method: "get",
+})
+.then((res) => res.text())
+.then((result) => {
+  document.getElementById("product").innerHTML = result;
+  console.log(result);
+})
+.catch((error) => console.log(error));
+}
+
 function findAllCustomers(){
   fetch("http://localhost:3000/api/admin/findAllCustomers", {
   method: "get",
 })
 .then((res) => res.text())
 .then((result) => {
-  //document.getElementById("customers").innerHTML = result;
+  document.getElementById("customers").innerHTML = result;
   console.log(result);
 })
 .catch((error) => console.log(error));
+
 }
 
 function findAllOrders(){
@@ -81,7 +94,7 @@ function findAllOrders(){
 })
 .then((res) => res.text())
 .then((result) => {
-  //document.getElementById("customers").innerHTML = result;
+  document.getEle("orders").innerHTML = result;
   console.log(result);
 })
 .catch((error) => console.log(error));
