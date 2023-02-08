@@ -44,7 +44,11 @@ function storeCustomerInfo() {
     .then((res) => res.json())
     .then((result) => {
       document.getElementById("msg").innerHTML = result.msg;
-      console.log(result);
+      if(result.msg=="Account created Successfully!"){
+        window.open("./customer.html");
+    }else {
+        document.getElementById("msg").innerHTML=result.msg;
+    }
     })
     .catch((error) => console.log(error));
   reset();

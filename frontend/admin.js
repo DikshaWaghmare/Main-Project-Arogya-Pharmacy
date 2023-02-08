@@ -79,10 +79,16 @@ function findAllCustomers(){
   fetch("http://localhost:3000/api/admin/findAllCustomers", {
   method: "get",
 })
-.then((res) => res.text())
+.then((res) => res.json())
 .then((result) => {
-  document.getElementById("customers").innerHTML = result;
-  console.log(result);
+  result.forEach(doc=>{
+    //document.getElementById("customers").innerHTML =doc.name;    
+    document.getElementById("customer").innerHTML =(doc._id+" "+doc.name+" "+doc.email+" "+doc.password+" "+doc.gender+" "+doc.age+" "+doc.mobileNo+" "+doc.address+" "+doc.typeOfUser);
+    document.getElementById("name").innerHTML =((doc._id+" "+doc.name+" "+doc.email+" "+doc.password+" "+doc.gender+" "+doc.age+" "+doc.mobileNo+" "+doc.address+" "+doc.typeOfUser));
+    console.log(doc.name,doc.age);
+});
+  //console.log(result);
+  // (doc._id, doc.name, doc.email, doc.password,doc.gender,doc.age,doc.mobileNo,doc.address,doc.typeOfUser)
 })
 .catch((error) => console.log(error));
 
@@ -94,8 +100,30 @@ function findAllOrders(){
 })
 .then((res) => res.text())
 .then((result) => {
-  document.getEle("orders").innerHTML = result;
+  document.getElementById("orders").innerHTML = result;
   console.log(result);
 })
 .catch((error) => console.log(error));
+}
+
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
 }

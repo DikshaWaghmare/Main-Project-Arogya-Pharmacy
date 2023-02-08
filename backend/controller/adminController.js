@@ -53,8 +53,9 @@ let addCategory=async(req,res)=>{
  let findAllCustomers = async (req, res) =>{
   try {
     let result = await customerModel.find({});
-    let msg=JSON.stringify(result);
-        res.send(msg);
+    //let msg=JSON.stringify(result);
+    res.json(result);
+
 } catch (error) {
     res.json(error);
 } 
@@ -68,4 +69,21 @@ let findAllAdmin = async (req, res) =>{
     res.json(error);
 } 
 }
+
+let  viewOrderByCustId=async(req,res)=>{
+  let custId=(req.body.customerId);
+  try{
+      let result=await orderModel.findOne({customerId:custId});
+      if(result==null){
+          res.json({"msg":"Record not present with customer id as "+custId})
+      }else {
+          res.json(result);
+      }
+      }
+      catch(err){
+          res.json({"msg":"Error generated "+err});
+      }
+}
+
+
 module.exports={addCategory, addProduct, viewAllCategory,viewAllProduct,findAllCustomers,findAllAdmin}

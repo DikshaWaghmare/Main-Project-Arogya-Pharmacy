@@ -13,26 +13,32 @@
 
 <body>
     <a class="btn btn-secondary ms-4 mt-5" href="signIn.html">Go Back</a>
-    <div class="container text-center mt-5 border p-3">
+    <div class="container text-center mt-2 p-3">
         <h3>Welcome to Admin page!</h3>
     </div>
+
     <div class="container ms-5 mt-5">
-        <a href="./addProduct.html"><input type="button" value="Add Product" /></a>
-
-        <a href="./addCategory.html"><input type="button" value="Add Category" /></a>
-
-        <input type="button" value="View Customers" ondblclick="findAllCustomers()" onclick="reset()"/>
-
-        <input type="button" value="View Orders" ondblclick="findAllOrders()" /><br>
+        <a href="./addProduct.html" target="popup"
+            onclick="window.open('./addProduct.html','popup','width=700,height=700'); return false;">
+            <input type="button" value="Add Product" />
+        </a>
+        <input type="button" value="View All Products" onclick="viewAllProducts()" /><br /><br />
+        <span id="product"></span><br><br>
+        <a href="./addCategory.html" target="popup"
+            onclick="window.open('./addCategory.html','popup','width=700,height=700'); return false;">
+            <input type="button" value="Add Category" />
+        </a>
+        <input type="button" value="View All Category" onclick="viewAllCategory()" /><br /><br />
+        <span id="Category"></span><br><br>
+        <input type="button" value="View Customers" onclick="findAllCustomers()" onclick="reset()" />
+        
+        <input type="button" value="View Orders" onclick="findAllOrders()" /><br>
+        <span id="customer"></span><br><br>
+        <span id="name"></span><br><br>
+        <span id="customers"></span><br><br>
+        <span id="orders"></span><br><br>
     </div>
-   
-    <div class=" p-3">
-        <span id="customers"></span>
-    </div>
-    <div class=" p-3">
-        <span id="orders"></span>
-    </div>
-    
+
     <script src="./admin.js"></script>
 </body>
 

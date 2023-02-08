@@ -30,11 +30,11 @@ function signinUser() {
       document.getElementById("msg").innerHTML = data.msg;
      // console.log(data);
       if(data.msg=="Admin successfully login!"){
-        window.location.href="file:///C:/Users/gramp/OneDrive/Desktop/nodejstraining/Main%20Project-Arogya%20Pharmacy/frontend/admin.html";
+        window.open("./admin.html");
 
     }else if(data.msg=="Customer successfully login!"){
-      console.log(data)
-      //window.location.href="file:///C:/Users/gramp/OneDrive/Desktop/nodejstraining/Main%20Project-Arogya%20Pharmacy/frontend/customer.html";
+      //console.log(data)
+      window.open("./customer.html");
     } else {
         document.getElementById("msg").innerHTML=data.msg;
 
@@ -44,29 +44,29 @@ function signinUser() {
   reset();
 }
 
-function viewCustomer() {
+// function viewCustomer() {
   
-  fetch("http://localhost:3000/api/customer/signIn", {
-    method: "get",
-  })
-    .then((res) => res.text())
-    .then((data) => {
-      document.getElementById("msg").innerHTML = data.msg;
-     // console.log(data);
-      if(data.msg=="Admin successfully login!"){
-        window.location.href="file:///C:/Users/gramp/OneDrive/Desktop/nodejstraining/Main%20Project-Arogya%20Pharmacy/frontend/admin.html";
+//   fetch("http://localhost:3000/api/customer/signIn", {
+//     method: "get",
+//   })
+//     .then((res) => res.text())
+//     .then((data) => {
+//       document.getElementById("msg").innerHTML = data.msg;
+//      // console.log(data);
+//       if(data.msg=="Admin successfully login!"){
+//         window.location.href="file:///C:/Users/gramp/OneDrive/Desktop/nodejstraining/Main%20Project-Arogya%20Pharmacy/frontend/admin.html";
 
-    }else if(data.msg=="Customer successfully login!"){
-      console.log(data)
-      //window.location.href="file:///C:/Users/gramp/OneDrive/Desktop/nodejstraining/Main%20Project-Arogya%20Pharmacy/frontend/customer.html";
-    } else {
-        document.getElementById("msg").innerHTML=data.msg;
+//     }else if(data.msg=="Customer successfully login!"){
+//       console.log(data)
+//       window.location.href="file:///C:/Users/gramp/OneDrive/Desktop/nodejstraining/Main%20Project-Arogya%20Pharmacy/frontend/customer.html";
+//     } else {
+//         document.getElementById("msg").innerHTML=data.msg;
 
-    }
-    })
-    .catch((error) => console.log(error));
-  reset();
-}
+//     }
+//     })
+//     .catch((error) => console.log(error));
+//   reset();
+// }
 
 function reset() {
   document.getElementById("email").value = "";

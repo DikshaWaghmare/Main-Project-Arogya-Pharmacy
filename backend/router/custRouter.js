@@ -8,11 +8,13 @@ router.post("/signUp",CustController.signUp);
 //http://localhost:3000/api/customer/signIn
 router.post("/signIn",CustController.signIn);
 
-router.get("/signIn",CustController.signIn);
-//http://localhost:3000/api/customer/findAllCustomers
-router.get("/findAllCustomers",CustController.findAllCustomers);
 
-//http://localhost:3000/api/customer/findCustomerById
-router.get("/findCustomerById",CustController.findCustomerById);
+//http://localhost:3000/api/customer/findCustomerByName 
+router.post("/findCustomerByName",CustController.findCustomerByName);
 
+//http://localhost:3000/api/customer/viewCategoryByName 
+router.post("/viewCategoryByName",CustController.viewCategoryByName);
+
+//http://localhost:3000/api/customer/viewProductByName
+router.post("/viewProductByName",CustController.viewProductByName);
 module.exports=router;
