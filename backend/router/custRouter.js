@@ -8,7 +8,6 @@ router.post("/signUp",CustController.signUp);
 //http://localhost:3000/api/customer/signIn
 router.post("/signIn",CustController.signIn);
 
-
 //http://localhost:3000/api/customer/findCustomerByName 
 router.post("/findCustomerByName",CustController.findCustomerByName);
 
@@ -17,4 +16,7 @@ router.post("/viewCategoryByName",CustController.viewCategoryByName);
 
 //http://localhost:3000/api/customer/viewProductByName
 router.post("/viewProductByName",CustController.viewProductByName);
+
+//http://localhost:3000/api/customer/updatCustData
+//router.patch("/updatCustData",CustController.updatCustData);
 module.exports=router;

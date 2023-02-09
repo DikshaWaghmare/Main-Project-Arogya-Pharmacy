@@ -28,7 +28,7 @@ let  viewOrderByCustId=async(req,res)=>{
     try{
         let result=await orderModel.findOne({customerId:custId});
         if(result==null){
-            res.json({"msg":"Record not present with customer id as "+custId})
+            res.json({"msg":"Record not found!"})
         }else {
             res.json(result);
         }

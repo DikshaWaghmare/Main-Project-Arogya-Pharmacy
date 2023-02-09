@@ -1,3 +1,4 @@
+//add categories
 function addCategory(){
     var _id=document.getElementById("id").value;
     var cname=document.getElementById("cname").value;
@@ -18,6 +19,8 @@ function addCategory(){
     .catch((error) => console.log(error));
   reset();
 }
+
+//Add Products
 function addProduct(){
     var _id=document.getElementById("pid").value;
     var pname=document.getElementById("pname").value;
@@ -51,6 +54,7 @@ function reset(){
     document.getElementById("cid").value="";
 }
 
+//find all categories
 function viewAllCategory(){
   fetch("http://localhost:3000/api/admin/viewAllCategory", {
   method: "get",
@@ -63,6 +67,7 @@ function viewAllCategory(){
 .catch((error) => console.log(error));
 }
 
+//find all products
 function viewAllProducts(){
   fetch("http://localhost:3000/api/admin/viewAllProducts", {
   method: "get",
@@ -75,25 +80,25 @@ function viewAllProducts(){
 .catch((error) => console.log(error));
 }
 
+//find all customers
 function findAllCustomers(){
   fetch("http://localhost:3000/api/admin/findAllCustomers", {
   method: "get",
 })
 .then((res) => res.json())
 .then((result) => {
-  result.forEach(doc=>{
-    //document.getElementById("customers").innerHTML =doc.name;    
-    document.getElementById("customer").innerHTML =(doc._id+" "+doc.name+" "+doc.email+" "+doc.password+" "+doc.gender+" "+doc.age+" "+doc.mobileNo+" "+doc.address+" "+doc.typeOfUser);
-    document.getElementById("name").innerHTML =((doc._id+" "+doc.name+" "+doc.email+" "+doc.password+" "+doc.gender+" "+doc.age+" "+doc.mobileNo+" "+doc.address+" "+doc.typeOfUser));
-    console.log(doc.name,doc.age);
-});
-  //console.log(result);
-  // (doc._id, doc.name, doc.email, doc.password,doc.gender,doc.age,doc.mobileNo,doc.address,doc.typeOfUser)
+   result.forEach(doc=>{
+    document.getElementById("customers").innerHTML =doc.name;  
+    console.log(doc.name);
+    //document.getElementById("customer").innerHTML =(doc._id+" "+doc.name+" "+doc.email+" "+doc.password+" "+doc.gender+" "+doc.age+" "+doc.mobileNo+" "+doc.address+" "+doc.typeOfUser);
+    console.log(doc._id, doc.name, doc.email, doc.password,doc.gender,doc.age,doc.mobileNo,doc.address,doc.typeOfUser);
+    //console.log(result._id,result.name,result.email,result.password,result.gender,result.age,result.mobileNo,result.address,result.typeOfUser);
+ });
 })
 .catch((error) => console.log(error));
 
 }
-
+//find all orders
 function findAllOrders(){
   fetch("http://localhost:3000/api/order/viewAllOrder", {
   method: "get",
@@ -104,26 +109,4 @@ function findAllOrders(){
   console.log(result);
 })
 .catch((error) => console.log(error));
-}
-
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
 }

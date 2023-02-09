@@ -1,4 +1,4 @@
-
+//find customer by Name
 function viewCustomerByName(){
   var cname=document.getElementById("cname").value;
   var customers = {
@@ -13,12 +13,37 @@ function viewCustomerByName(){
   })
     .then((res) => res.json())
     .then((result) => {
-      document.getElementById("cDetails").innerHTML = ("Id: "+result._id+"<br>Name:"+result.name+"<br>Email: "+result.email+"<br>Password: "+result.password+"<br>Gender: "+result.gender+"<br>Age: "+result.age+"<br>Name:Mobile No.: "+result.mobileNo+"<br>Address: "+result.address+"<br>TypeOfUser: "+result.typeOfUser);
-    })
+        if(result.msg!=null){
+        document.getElementById("cDetails").innerHTML =result.msg;
+       }else{
+        document.getElementById("cDetails").innerHTML = ("Id: "+result._id+"<br>Name:"+result.name+"<br>Email: "+result.email+"<br>Password: "+result.password+"<br>Gender: "+result.gender+"<br>Age: "+result.age+"<br>Mobile No.: "+result.mobileNo+"<br>Address: "+result.address+"<br>TypeOfUser: "+result.typeOfUser);
+      }})
+      
+  //     var tableString = "<table>",
+  //     body = document.getElementsByTagName('body')[0],
+  //     div = document.createElement('div');
+  //     var tableString = "<table>",
+  //     body = document.getElementsByTagName('body')[0],
+  //     div = document.createElement('div');
+  //     for (row = 1; row < 5; row += 1) {
+  //     tableString += "<tr>";
+  //     for (col = 1; col < 5; col += 1) {
+  //         tableString += "<td>" + "row [" + row + "]" + "col [" + col + "]" + "</td>";
+  //     }
+  //     tableString += "</tr>";
+  // }
+  // tableString += "</table>";
+  // div.innerHTML = tableString;
+  // body.appendChild(div);
+   
     .catch((error) => console.log(error));
+    }
+// function updatCustData(){
+//   console.log("hiiii")
   
-}
+// }
 
+//find category by name
 function viewCategoryByName(){
   var cname=document.getElementById("categoryName").value;
   var Category = {
@@ -31,33 +56,19 @@ function viewCategoryByName(){
       "Content-type": "application/json",
     },
   })
-    .then((res) => res.text())
+    .then((res) => res.json())
     .then((result) => {
-      document.getElementById("MyCategory").innerHTML = result.msg;
-    })
-    .catch((error) => console.log(error));
-  
-}
-function viewCategoryByName(){
-  var cname=document.getElementById("categoryName").value;
-  var Category = {
-    Cname:cname
-  };
-  fetch("http://localhost:3000/api/customer/viewCategoryByName", {
-    method: "post",
-    body: JSON.stringify(Category),
-    headers: {
-      "Content-type": "application/json",
-    },
-  })
-    .then((res) => res.text())
-    .then((result) => {
-      document.getElementById("MyCategory").innerHTML = result;
-    })
+      if(result.msg!=null){
+        document.getElementById("MyCategory").innerHTML =result.msg;
+       }else{
+        document.getElementById("MyCategory").innerHTML = ("Id: "+result._id+"<br>Category Name:"+result.Cname);
+      }})
+      
     .catch((error) => console.log(error));
   
 }
 
+//Find product by name
 function viewProductByName(){
   var pname=document.getElementById("productName").value;
   var product = {
@@ -70,13 +81,17 @@ function viewProductByName(){
       "Content-type": "application/json",
     },
   })
-    .then((res) => res.text())
+    .then((res) => res.json())
     .then((result) => {
-      document.getElementById("Myproduct").innerHTML = result;
-    })
+      if(result.msg!=null){
+        document.getElementById("Myproduct").innerHTML =result.msg;
+       }else{
+        document.getElementById("Myproduct").innerHTML = ("Id: "+result._id+"<br>Product Name: "+result.pname+"<br>Product price: "+result.price+"<br>Product Quantity: "+result.quantity+"<br>Category Id: "+result.cid);
+      }})
     .catch((error) => console.log(error));
-  
 }
+
+//order function
 function order(){
   var categoryId=document.getElementById("cid").value;
   var productId=document.getElementById("pid").value;
@@ -115,6 +130,8 @@ function reset(){
   amount=document.getElementById("amount").value=("");
   dateOfOrder=document.getElementById("doforder").value=("");
 }
+
+//view your own order
 function viewOrder(){
   var cid=document.getElementById("custId").value;
   var order = {
@@ -127,9 +144,15 @@ function viewOrder(){
       "Content-type": "application/json",
     },
   })
-    .then((res) => res.text())
+    .then((res) => res.json())
     .then((result) => {
-      document.getElementById("MyOrder").innerHTML = result;
-    })
+      if(result.msg!=null){
+        document.getElementById("MyOrder").innerHTML =result.msg;
+       }else{
+        document.getElementById("MyOrder").innerHTML = ("Category Id: "+result.categoryId+"<br>Product Id: "+result.productId+"<br>Customer Id: "+result.customerId+"<br>Product Quantity: "+result.productqty+"<br>Amount: "+result.amount+"<br>Date Of Order: "+result.dateOfOrder);
+      }})
     .catch((error) => console.log(error));
 }
+
+
+
