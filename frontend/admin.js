@@ -88,7 +88,7 @@ function findAllCustomers(){
 .then((res) => res.json())
 .then((result) => {
    result.forEach(doc=>{
-    document.getElementById("customers").innerHTML =doc.name;  
+    document.getElementById("customer").innerHTML =doc.name;  
     console.log(doc.name);
     //document.getElementById("customer").innerHTML =(doc._id+" "+doc.name+" "+doc.email+" "+doc.password+" "+doc.gender+" "+doc.age+" "+doc.mobileNo+" "+doc.address+" "+doc.typeOfUser);
     console.log(doc._id, doc.name, doc.email, doc.password,doc.gender,doc.age,doc.mobileNo,doc.address,doc.typeOfUser);

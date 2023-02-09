@@ -16,7 +16,7 @@ let signUp = async (req, res) => {
         res.json({ msg: "Something went wrong.....Try Again!" });
       }
     } catch (err) {
-      res.json({ msg: "EmailId must be unique" });
+        res.json({ msg: "Fill All the Field: "+err});
     }
   }
 };
@@ -79,7 +79,7 @@ let viewCategoryByName = async (req, res) => {
   try {
     let result = await categoryModel.findOne({ Cname: cname });
     if (result == null) {
-      res.json({ msg: "Record not present with Category name as " + cname });
+      res.json({ msg: "Record not Found!" });
     } else {
       res.json(result);
     }

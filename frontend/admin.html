@@ -22,24 +22,46 @@
             onclick="window.open('./addProduct.html','popup','width=700,height=700'); return false;">
             <input type="button" value="Add Product" />
         </a>
-        <input type="button" value="View All Products" onclick="viewAllProducts()" /><br /><br />
-        <span id="product"></span><br><br>
+        <input type="button" value="View All Products" onclick="viewAllProducts()" /><br><br>
+        <label>Enter Product Name:</label>
+        <input type="text" id="productName" />
+        <input type="button" value="View Products" onclick="viewProductByName()" /><br>
+        <p id="Myproduct"></p>
+        <span id="product"></span><br>
+        <br>
         <a href="./addCategory.html" target="popup"
             onclick="window.open('./addCategory.html','popup','width=700,height=700'); return false;">
             <input type="button" value="Add Category" />
         </a>
         <input type="button" value="View All Category" onclick="viewAllCategory()" /><br /><br />
+        <label>Enter Category Name:</label>
+        <input type="text" id="categoryName" />
+        <input type="button" value="View Categorys" onclick="viewCategoryByName()" /><br>
+        <p id="MyCategory"></p>
         <span id="Category"></span><br><br>
-        <input type="button" value="View Customers" onclick="findAllCustomers()" onclick="reset()" />
-        
-        <input type="button" value="View Orders" onclick="findAllOrders()" /><br>
+       
+        <input type="button" value="View Customers" onclick="findAllCustomers()" onclick="reset()" /><br><br>
+        <label>Enter Your Name:</label>
+        <input type="text" id="cname" />
+        <input type="button" value="Customer Details" onclick="viewCustomerByName()" /><br>
+        <p id="cDetails"></p>
         <span id="customer"></span><br><br>
-        <span id="name"></span><br><br>
-        <span id="customers"></span><br><br>
+
+
+        <input type="button" value="View Orders" onclick="findAllOrders()" /><br>
+        <label>Find order by customerId:</label>
+        <input type="text" id="custId" />
+        <input type="button" value="Customer Order" onclick="viewOrder()" /><br>
+        <p id="MyOrder"></p>
         <span id="orders"></span><br><br>
+
     </div>
 
+
+
+
     <script src="./admin.js"></script>
+    <script src="./customer.js"></script>
 </body>
 
 </html>

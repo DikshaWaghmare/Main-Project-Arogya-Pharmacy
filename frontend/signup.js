@@ -50,7 +50,9 @@ function storeCustomerInfo() {
         document.getElementById("msg").innerHTML=result.msg;
     }
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+    console.log(error);
+  })
   reset();
 }
 
