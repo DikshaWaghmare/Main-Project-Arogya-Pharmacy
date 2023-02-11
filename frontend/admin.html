@@ -18,6 +18,17 @@
     </div>
 
     <div class="container ms-5 mt-5">
+        <a href="./addCategory.html" target="popup"
+            onclick="window.open('./addCategory.html','popup','width=700,height=700'); return false;">
+            <input type="button" value="Add Category" />
+        </a>
+        <input type="button" value="View All Category" onclick="viewAllCategory()" /><br /><br />
+        <label>Enter Category Name:</label>
+        <input type="text" id="categoryName" />
+        <input type="button" value="View Categorys" onclick="viewCategoryByName()" /><br>
+        <p id="MyCategory"></p>
+        <span id="Category"></span><br><br>
+        
         <a href="./addProduct.html" target="popup"
             onclick="window.open('./addProduct.html','popup','width=700,height=700'); return false;">
             <input type="button" value="Add Product" />
@@ -29,21 +40,12 @@
         <p id="Myproduct"></p>
         <span id="product"></span><br>
         <br>
-        <a href="./addCategory.html" target="popup"
-            onclick="window.open('./addCategory.html','popup','width=700,height=700'); return false;">
-            <input type="button" value="Add Category" />
-        </a>
-        <input type="button" value="View All Category" onclick="viewAllCategory()" /><br /><br />
-        <label>Enter Category Name:</label>
-        <input type="text" id="categoryName" />
-        <input type="button" value="View Categorys" onclick="viewCategoryByName()" /><br>
-        <p id="MyCategory"></p>
-        <span id="Category"></span><br><br>
+        
        
-        <input type="button" value="View Customers" onclick="findAllCustomers()" onclick="reset()" /><br><br>
-        <label>Enter Your Name:</label>
+        <input type="button" value="View All Data" onclick="findAllData()" /><br><br>
+        <label>Enter Customer Name:</label>
         <input type="text" id="cname" />
-        <input type="button" value="Customer Details" onclick="viewCustomerByName()" /><br>
+        <input type="button" value="Customer Details" onkeydown="viewCustomerByName()" /><br>
         <p id="cDetails"></p>
         <span id="customer"></span><br><br>
 

@@ -59,10 +59,10 @@ function viewAllCategory(){
   fetch("http://localhost:3000/api/admin/viewAllCategory", {
   method: "get",
 })
-.then((res) => res.text())
+.then((res) => res.json())
 .then((result) => {
-  document.getElementById("Category").innerHTML = result;
-  console.log(result);
+  output=document.getElementById("Category");
+  output.innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.Cname).join("<br/>");
 })
 .catch((error) => console.log(error));
 }
@@ -72,41 +72,40 @@ function viewAllProducts(){
   fetch("http://localhost:3000/api/admin/viewAllProducts", {
   method: "get",
 })
-.then((res) => res.text())
+.then((res) => res.json())
 .then((result) => {
-  document.getElementById("product").innerHTML = result;
-  console.log(result);
+  output=document.getElementById("product");
+  output.innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.pname+", Price: "+obj.price+", Quantity: "+obj.quantity+", category Id: "+obj.cid).join("<br/>");
+  
 })
 .catch((error) => console.log(error));
 }
 
 //find all customers
-function findAllCustomers(){
+function findAllData(){
   fetch("http://localhost:3000/api/admin/findAllCustomers", {
   method: "get",
 })
 .then((res) => res.json())
 .then((result) => {
-   result.forEach(doc=>{
-    document.getElementById("customer").innerHTML =doc.name;  
-    console.log(doc.name);
-    //document.getElementById("customer").innerHTML =(doc._id+" "+doc.name+" "+doc.email+" "+doc.password+" "+doc.gender+" "+doc.age+" "+doc.mobileNo+" "+doc.address+" "+doc.typeOfUser);
-    console.log(doc._id, doc.name, doc.email, doc.password,doc.gender,doc.age,doc.mobileNo,doc.address,doc.typeOfUser);
-    //console.log(result._id,result.name,result.email,result.password,result.gender,result.age,result.mobileNo,result.address,result.typeOfUser);
- });
+  //console.log(result)
+  //document.getElementById("customer").innerHTML =(result);
+  document.getElementById("customer").innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.name+", Email: "+obj.email+", Password: "+obj.password+", Gender: "+obj.gender+", Age: "+obj.age+", Mobile No.: "+obj.mobileNo+", Address: "+obj.address+", Type Of User: "+obj.typeOfUser).join("<br/>");
+    
 })
 .catch((error) => console.log(error));
 
 }
+
 //find all orders
 function findAllOrders(){
   fetch("http://localhost:3000/api/order/viewAllOrder", {
   method: "get",
 })
-.then((res) => res.text())
+.then((res) => res.json())
 .then((result) => {
-  document.getElementById("orders").innerHTML = result;
-  console.log(result);
+  output=document.getElementById("orders");
+  output.innerHTML = result.map(obj=>"Category Id: "+obj.categoryId+", Product Id: "+obj.productId+", Customer Id: "+obj.customerId+", Product Quantity: "+obj.productqty+", Amount: "+obj.amount).join("<br/>");
 })
 .catch((error) => console.log(error));
 }

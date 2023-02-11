@@ -53,8 +53,7 @@ let addCategory=async(req,res)=>{
  let findAllCustomers = async (req, res) =>{
   try {
     let result = await customerModel.find({});
-    //let msg=JSON.stringify(result);
-    res.json(result);
+    res.send(result);
 
 } catch (error) {
     res.json(error);
