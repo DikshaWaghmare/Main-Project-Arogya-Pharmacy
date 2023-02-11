@@ -54,15 +54,60 @@ function reset(){
     document.getElementById("cid").value="";
 }
 
+
+
 //find all categories
 function viewAllCategory(){
+
   fetch("http://localhost:3000/api/admin/viewAllCategory", {
   method: "get",
 })
 .then((res) => res.json())
 .then((result) => {
-  output=document.getElementById("Category");
-  output.innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.Cname).join("<br/>");
+ // console.log(result.length);
+  // output=document.getElementById("Category");
+  // output.innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.Cname).join("<br/>");
+  var tableTag =document.createElement("table");
+  tableTag.setAttribute("border","1");
+  tableTag.setAttribute("width","400px");
+  
+  var firstRow=document.createElement("tr");
+  firstRow.setAttribute("border","1");
+
+  var firstRowfirstColumn=document.createElement("th");
+  firstRowfirstColumn.setAttribute("class","tablehead");
+  var firstRowfirstColumnV=document.createTextNode("Id");
+  firstRowfirstColumn.appendChild(firstRowfirstColumnV);
+
+  var firstRowSecondColumn=document.createElement("th");
+  firstRowSecondColumn.setAttribute("class","tablehead");
+  var firstRowSecondColumnV=document.createTextNode("Name");
+  firstRowSecondColumn.appendChild(firstRowSecondColumnV);
+
+  firstRow.appendChild(firstRowfirstColumn);
+  firstRow.appendChild(firstRowSecondColumn);
+  tableTag.appendChild(firstRow);
+
+  for(i=0;i<result.length;i++){
+    var secondRow=document.createElement("tr");
+
+    var secondRowFirstCol=document.createElement("td");
+    
+    var secondRowFirstColV=document.createTextNode(result[i]._id);
+    secondRowFirstCol.appendChild(secondRowFirstColV);
+    secondRowFirstCol.setAttribute("border","2");
+
+    var secondRowSecondCol=document.createElement("td");
+    var secondRowSecondColV=document.createTextNode(result[i].Cname);
+    secondRowSecondCol.appendChild(secondRowSecondColV);
+
+    secondRow.appendChild(secondRowFirstCol);
+    secondRow.appendChild(secondRowSecondCol);
+
+    tableTag.appendChild(secondRow);
+  }
+  // document.getElementsByTagName("body")[0].appendChild(tableTag);
+   document.getElementById("DataView").appendChild(tableTag);
 })
 .catch((error) => console.log(error));
 }
@@ -74,9 +119,82 @@ function viewAllProducts(){
 })
 .then((res) => res.json())
 .then((result) => {
-  output=document.getElementById("product");
-  output.innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.pname+", Price: "+obj.price+", Quantity: "+obj.quantity+", category Id: "+obj.cid).join("<br/>");
+  // output=document.getElementById("product");
+  // output.innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.pname+", Price: "+obj.price+", Quantity: "+obj.quantity+", category Id: "+obj.cid).join("<br/>");
+  var tableTag =document.createElement("table");
+  tableTag.setAttribute("border","1");
+  tableTag.setAttribute("width","400px");
   
+  var firstRow=document.createElement("tr");
+  firstRow.setAttribute("border","1");
+
+  var firstRowfirstColumn=document.createElement("th");
+  firstRowfirstColumn.setAttribute("class","tablehead");
+  var firstRowfirstColumnV=document.createTextNode("Id");
+  firstRowfirstColumn.appendChild(firstRowfirstColumnV);
+
+  var firstRowSecondColumn=document.createElement("th");
+  firstRowSecondColumn.setAttribute("class","tablehead");
+  var firstRowSecondColumnV=document.createTextNode("Name");
+  firstRowSecondColumn.appendChild(firstRowSecondColumnV);
+
+  var firstRowThirdColumn=document.createElement("th");
+  firstRowThirdColumn.setAttribute("class","tablehead");
+  var firstRowThirdColumnV=document.createTextNode("Price");
+  firstRowThirdColumn.appendChild(firstRowThirdColumnV);
+
+  var firstRowForthColumn=document.createElement("th");
+  firstRowForthColumn.setAttribute("class","tablehead");
+  var firstRowForthColumnV=document.createTextNode("Quantity");
+  firstRowForthColumn.appendChild(firstRowForthColumnV);
+
+  var firstRowFifthColumn=document.createElement("th");
+  firstRowFifthColumn.setAttribute("class","tablehead");
+  var firstRowFifthColumnV=document.createTextNode("Category Id");
+  firstRowFifthColumn.appendChild(firstRowFifthColumnV);
+
+  firstRow.appendChild(firstRowfirstColumn);
+  firstRow.appendChild(firstRowSecondColumn);
+  firstRow.appendChild(firstRowThirdColumn);
+  firstRow.appendChild(firstRowForthColumn);
+  firstRow.appendChild(firstRowFifthColumn);
+  tableTag.appendChild(firstRow);
+
+  for(i=0;i<result.length;i++){
+    var secondRow=document.createElement("tr");
+
+    var secondRowFirstCol=document.createElement("td");
+    
+    var secondRowFirstColV=document.createTextNode(result[i]._id);
+    secondRowFirstCol.appendChild(secondRowFirstColV);
+    secondRowFirstCol.setAttribute("border","2");
+
+    var secondRowSecondCol=document.createElement("td");
+    var secondRowSecondColV=document.createTextNode(result[i].pname);
+    secondRowSecondCol.appendChild(secondRowSecondColV);
+
+    var secondRowThirdCol=document.createElement("td");
+    var secondRowThirdColV=document.createTextNode(result[i].price);
+    secondRowThirdCol.appendChild(secondRowThirdColV);
+
+    var secondRowForthCol=document.createElement("td");
+    var secondRowForthColV=document.createTextNode(result[i].quantity);
+    secondRowForthCol.appendChild(secondRowForthColV);
+
+    var secondRowFifthCol=document.createElement("td");
+    var secondRowFifthColV=document.createTextNode(result[i].cid);
+    secondRowFifthCol.appendChild(secondRowFifthColV);
+
+    secondRow.appendChild(secondRowFirstCol);
+    secondRow.appendChild(secondRowSecondCol);
+    secondRow.appendChild(secondRowThirdCol);
+    secondRow.appendChild(secondRowForthCol);
+    secondRow.appendChild(secondRowFifthCol);
+
+    tableTag.appendChild(secondRow);
+  }
+  // document.getElementsByTagName("body")[0].appendChild(tableTag);
+   document.getElementById("DataView").appendChild(tableTag);
 })
 .catch((error) => console.log(error));
 }
