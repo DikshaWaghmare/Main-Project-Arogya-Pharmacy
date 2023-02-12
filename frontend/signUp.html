@@ -12,12 +12,40 @@
 </head>
 <body>
     <section>
-        <div class="container-fluid">
-            <div class="p-3  mt-4">
-                <a class="btn btn-secondary" href="index.html">Go Back</a>
-                <h2 class="text-center">Welcome to SignUp page!<i class="bi bi-person"></i> </h2>
+        <nav class="navbar navbar-expand-lg bg-info d-flex row border">
+            <div class="container-fluid">
+                <div class="">
+                    <a class="navbar-brand ms-3" href="#"><img src="./Logos/img2.webp"
+                            style="height: 50px; width: 50px; border-radius: 50%;"> <b class="fs-4 ">आपली</b>Pharmacy❤️
+                        </a></div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav  mb-2 mb-lg-0 fw-normal fs-5">
+                        <li class="nav-item" style="margin-right:30px; margin-left: 400px;">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item" style="margin-right:30px ;">
+                            <a class="nav-link" href="./about.html">About</a>
+                        </li>
+                        <li class="nav-item" style="margin-right:30px ;">
+                            <a class="nav-link" href="./contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item" style="margin-right:30px ;margin-left: 270px;">
+                            <a href="signUp.html" target="_blank" class="nav-link"><i class="bi bi-person"></i> Sign up</a>
+                        </li>
+                        <li class="nav-item" style="">
+                            <a href="signIn.html" target="_blank" class="nav-link"><i class="bi bi-box-arrow-in-right"></i>
+                                Sign in</a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-    
+        </nav>
+        <div class="container-fluid">
+           
             <form class="fs-6 p-5 mx-auto mt-5" style="height: auto; width: 700px; box-shadow: 0px 0px 2px black; border-radius: 10px;">
                 <label>Enter Full Name</label>
                 <input type="text" id="name"/><br><br>
@@ -44,6 +72,45 @@
            
         </div>
     </section>
+    <footer class="text-white" style="background-color:rgb(2, 67, 78);">
+        <div class="container">
+            <div class="container d-flex flex-wrap justify-content-evenly">
+                <div class="footer-style">
+                    <img src="./Logos/phaemacyLogo.png" style="height: 180px; width: 180px;" class="footer-img" />
+                </div>
+                <div style="margin-top: 50px;">
+                    <ul style="list-style-type: none;">
+                        <h4 class="mb-4">Quick Contact</h4>
+                        <li><span class="fs-5"><i class="bi bi-telephone"></i> -7447221055</span></li>
+                        <li><span class="fs-5"><i class="bi bi-envelope"></i> -dikshaw44@gmail.com</span></li>
+                        <li><span class="fs-5"><i class="bi bi-house"></i> -Tumsar, Maharashtra</span></li>
+                    </ul>
+                </div>
+                <div class="footer-style" style="margin-top: 50px;">
+                    <ul style="list-style-type: none;">
+                        <h4 class="mb-4">Social Media</h4>
+                        <li><a href="http://www.linkedin.com/in/diksha-waghmare" target="_blank"
+                                class="m-3 text-white fs-5">
+                                <i class="bi bi-linkedin"></i> Linkedin
+                            </a></li>
+                        <li> <a href="https://github.com/DikshaWaghmare" target="_blank" class="m-3 text-white fs-5">
+                                <i class="bi bi-github"></i> GitHub</a></li>
+                        <li><a href="https://www.instagram.com/dikshaw44/" target="_blank" class="m-3 text-white fs-5">
+                                <i class="bi bi-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.instagram.com/dikshaw44/" target="_blank" class="m-3 text-white fs-5">
+                                <i class="bi bi-facebook"></i> Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="padding-bottom: 10px;">
+                <hr>
+                </hr>
+                <p style="font-size: 20px; text-align: center; " class="font-monospace "><i><b>"Perfection is not
+                            attainable,
+                            but if we chase perfection we can catch excellence."</b></i></p>
+            </div>
+        </div>
+    </footer>
     <script src="./signup.js"></script>
 </body>
 </html>

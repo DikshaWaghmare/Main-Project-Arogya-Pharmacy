@@ -82,8 +82,7 @@ function viewCategoryByName() {
         output.innerHTML = result.msg;
       } else {
         output = document.getElementById("MyCategory");
-        output.innerHTML =
-          "Id: " + result._id + "<br>Category Name:" + result.Cname;
+        output.innerHTML ="Id: " + result._id + "<br>Category Name:" + result.Cname;
       }
     })
     .catch((error) => console.log(error));

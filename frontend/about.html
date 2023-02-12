@@ -1,39 +1,41 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignIn!</title>
+    <title>About</title>
     <link rel="stylesheet" href="./index.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    
 </head>
+
 <body>
-    <!-- navbar part -->
+
     <nav class="navbar navbar-expand-lg bg-info d-flex row border">
         <div class="container-fluid">
             <div class="">
                 <a class="navbar-brand ms-3" href="#"><img src="./Logos/img2.webp"
                         style="height: 50px; width: 50px; border-radius: 50%;"> <b class="fs-4 ">आपली</b>Pharmacy❤️
-                    </a></div>
+                </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav  mb-2 mb-lg-0 fw-normal fs-5">
                     <li class="nav-item" style="margin-right:30px; margin-left: 400px;">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item" style="margin-right:30px ;">
                         <a class="nav-link" href="./about.html">About</a>
                     </li>
                     <li class="nav-item" style="margin-right:30px ;">
-                        <a class="nav-link" href="./contact.html">Contact</a>
+                        <a class="nav-link" href="./contactus.html">Contact</a>
                     </li>
                     <li class="nav-item" style="margin-right:30px ;margin-left: 270px;">
                         <a href="signUp.html" target="_blank" class="nav-link"><i class="bi bi-person"></i> Sign up</a>
                     </li>
-                    <li class="nav-item" style="">
+                    <li class="nav-item">
                         <a href="signIn.html" target="_blank" class="nav-link"><i class="bi bi-box-arrow-in-right"></i>
                             Sign in</a>
                     </li>
@@ -46,33 +48,77 @@
         </div>
     </nav>
 
-    <!-- Middle part -->
     <section>
-        <div class="container border my-4 " style="height: 500px; border-radius: 10px; background-image: url(./Images/health-care-icon-pattern-medical-innovation-background_115579-1017.avif); background-size: 100% 100%; background-position: center;
+        <div class="container my-5" style="height: 450px; border-radius: 10px; background-image: url(./Images/about.jpg); background-size: 100% 100%; background-position: center;
         background-repeat: no-repeat;">
-            <!-- <div class="p-3  mt-4">
-                <h2 class="text-center">Welcome to SignIn page!<i class="bi bi-person"></i> </h2>
+            <div class="about-img1-bg-color">
+                <div class="text-white text-center mx-auto fs-5">
+                    <!-- <h1><b>ABOUT</b></h1> -->
+                    <p class="fs-4 font-monospace">"Good health is not something we can buy.<br> However, it can be an
+                        extremely valuable savings account."<br>
+                        <!-- We have the Pharmacists you can count on. Our pharmacist will make sure your most valuable health assest thrives." -->
+                        </b></p>
+                </div>
             </div>
-     -->
-            <form class="fs-5 p-5 ms-5 mt-5" style="height: auto; width: 500px; box-shadow: 0px 0px 2px black; border-radius: 10px;">
-                <label>Type Of User: </label>
-                <input type="radio" name="typeOfUser" value="admin"class="ms-3"/>Admin
-                <input type="radio" name="typeOfUser" value="customer"class="ms-3"/>Customer<br/><br/>
-                <label>Enter Email</label>
-                <input type="email" id="email"/><br><br>
-                <label>Password</label>
-                <input type="password" id="password"/><br><br>
-                <input value="Login" onclick="signinUser()" class="mx-5 mt-3 btn btn-info" style="width:100px"/>
-                <input type="reset" value="reset" class="btn btn-info mt-3 mx-5" style="width:100px"/><br/>
-                <p style="font-size: medium;" class="mx-5 mt-3">Create New Account <a href="signUp.html">Sign up</a> </p>
-                <span id="msg"></span>
-            </form>
-            <span id="detail"></span>
         </div>
     </section>
 
-    <!-- Footer part -->
-    <footer class="text-white" style="background-color:rgb(2, 67, 78);">
+    <section>
+        <div class="container d-flex my-4" style="height: 450px; border-radius: 10px; background-image: url(./Images/aboutus.jpg); background-size: 100% 100%; background-position: center;
+    background-repeat: no-repeat;">
+            <div class=" p-5 " style="width: 50%;">
+                <h3>About Us!</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis accusantium tempora ad cupiditate
+                    cum consectetur. Voluptas inventore quos libero quia! Excepturi ducimus error voluptatum deleniti
+                    officia, temporibus sapiente facilis aut.
+                </p>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis accusantium tempora ad cupiditate
+                    cum consectetur. Voluptas inventore quos libero quia! Excepturi ducimus error voluptatum deleniti
+                    officia, temporibus sapiente facilis aut.
+                </p>
+                <h5 class="text-center">" We have the Pharmacists you can count on. <br>Our pharmacist will make sure your most<br> valuable health assest
+                    thrives."</h5>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container mt-2 pb-5">
+            <h3 class="fw-bold ps-5 pt-4 ">MEET OUR TEAM <i class="bi bi-people fs-2"></i></h3>
+            <div class="d-flex flex-wrap justify-content-evenly ">
+                <div class="border my-3 team" style="height: 300px; width:250px">
+                    <img src="./Images/team1.png" style="height: 100%; width:100%" />
+                    <div class="p-2 text-center">
+                        <h5 class="fw-bold">Alexa Heal</h5>
+                    </div>
+                </div>
+
+                <div class="border my-3 team" style="height: 300px; width:250px">
+                    <img src="./Images/team2.jpg" style="height: 100%; width:100%" />
+                    <div class="p-2 text-center">
+                        <h5 class="fw-bold">Marry Gold</h5>
+                    </div>
+                </div>
+                <div class="border my-3 team" style="height: 300px; width:250px">
+                    <img src="./Images/team3.jpg" style="height: 100%; width:100%" />
+                    <div class="p-2 text-center">
+                        <h5 class="fw-bold">John Xender</h5>
+                    </div>
+                </div>
+                <div class="border my-3 team" style="height: 300px; width:250px">
+                    <img src="./Images/team4.jpg" style="height: 100%; width:100%" />
+                    <div class="p-2 text-center">
+                        <h5 class="fw-bold">Nikolas Pooran</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-white mt-5" style="background-color:rgb(2, 67, 78);">
         <div class="container">
             <div class="container d-flex flex-wrap justify-content-evenly">
                 <div class="footer-style">
@@ -111,6 +157,10 @@
             </div>
         </div>
     </footer>
-    <script src="./signin.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 </body>
-</html> 
+
+</html>
