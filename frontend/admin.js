@@ -78,7 +78,7 @@ function viewAllCategory() {
       firstRow.setAttribute("class", "categoryTable");
 
       var firstRowfirstColumn = document.createElement("th");
-     firstRowfirstColumn.setAttribute("class", "categoryTable");
+    //  firstRowfirstColumn.setAttribute("class", "categoryTable");
       var firstRowfirstColumnV = document.createTextNode("Id");
       firstRowfirstColumn.appendChild(firstRowfirstColumnV);
 
@@ -125,34 +125,34 @@ function viewAllProducts() {
       // output=document.getElementById("product");
       // output.innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.pname+", Price: "+obj.price+", Quantity: "+obj.quantity+", category Id: "+obj.cid).join("<br/>");
       var tableTag = document.createElement("table");
-      tableTag.setAttribute("border", "1");
-      tableTag.setAttribute("width", "400px");
+      tableTag.setAttribute("class", "categoryTable");
+      tableTag.setAttribute("width", "700px");
 
       var firstRow = document.createElement("tr");
-      firstRow.setAttribute("border", "1");
+      firstRow.setAttribute("class", "categoryTable");
 
       var firstRowfirstColumn = document.createElement("th");
-      firstRowfirstColumn.setAttribute("class", "tablehead");
+      //firstRowfirstColumn.setAttribute("class", "categoryTable");
       var firstRowfirstColumnV = document.createTextNode("Id");
       firstRowfirstColumn.appendChild(firstRowfirstColumnV);
 
       var firstRowSecondColumn = document.createElement("th");
-      firstRowSecondColumn.setAttribute("class", "tablehead");
+      //firstRowSecondColumn.setAttribute("class", "categoryTable");
       var firstRowSecondColumnV = document.createTextNode("Name");
       firstRowSecondColumn.appendChild(firstRowSecondColumnV);
 
       var firstRowThirdColumn = document.createElement("th");
-      firstRowThirdColumn.setAttribute("class", "tablehead");
+      //firstRowThirdColumn.setAttribute("class", "categoryTable");
       var firstRowThirdColumnV = document.createTextNode("Price");
       firstRowThirdColumn.appendChild(firstRowThirdColumnV);
 
       var firstRowForthColumn = document.createElement("th");
-      firstRowForthColumn.setAttribute("class", "tablehead");
+      //firstRowForthColumn.setAttribute("class", "categoryTable");
       var firstRowForthColumnV = document.createTextNode("Quantity");
       firstRowForthColumn.appendChild(firstRowForthColumnV);
 
       var firstRowFifthColumn = document.createElement("th");
-      firstRowFifthColumn.setAttribute("class", "tablehead");
+      //firstRowFifthColumn.setAttribute("class", "categoryTable");
       var firstRowFifthColumnV = document.createTextNode("Category Id");
       firstRowFifthColumn.appendChild(firstRowFifthColumnV);
 
@@ -212,9 +212,13 @@ function findAllData() {
       //document.getElementById("customer").innerHTML =(result);
       // document.getElementById("customer").innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.name+", Email: "+obj.email+", Password: "+obj.password+", Gender: "+obj.gender+", Age: "+obj.age+", Mobile No.: "+obj.mobileNo+", Address: "+obj.address+", Type Of User: "+obj.typeOfUser).join("<br/>");
       var tableTag = document.createElement("table");
+      tableTag.setAttribute("class", "categoryTable");
+      tableTag.setAttribute("width", "80%");
 
       var FirstR = document.createElement("tr");
+      FirstR.setAttribute("class", "categoryTable");
       var firstRfirstC = document.createElement("th");
+      // firstRfirstC.setAttribute("class","categoryTable")
       var firstRfirstCV = document.createTextNode("Id");
       firstRfirstC.appendChild(firstRfirstCV);
       var firstRsecondC = document.createElement("th");
@@ -314,8 +318,12 @@ function findAllOrders() {
       // output=document.getElementById("orders");
       // output.innerHTML = result.map(obj=>"Category Id: "+obj.categoryId+", Product Id: "+obj.productId+", Customer Id: "+obj.customerId+", Product Quantity: "+obj.productqty+", Amount: "+obj.amount).join("<br/>");
       var tableTag = document.createElement("table");
+      tableTag.setAttribute("class", "categoryTable");
+      tableTag.setAttribute("width", "50%");
 
       var FirstR = document.createElement("tr");
+      FirstR.setAttribute("class", "categoryTable");
+     
       var firstRfirstC = document.createElement("th");
       var firstRfirstCV = document.createTextNode("Category Id");
       firstRfirstC.appendChild(firstRfirstCV);

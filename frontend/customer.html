@@ -12,25 +12,22 @@
 </head>
 
 <body>
-    <div class="container mt-5 p-3">
-        <a class="btn btn-secondary" href="signIn.html">Go Back</a>
+    <div class="container-fluid p-3 text-end my-3 pe-5">
+        <a class="btn btn-primary" href="index.html">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+    </div>
+    
+    <div class="container pb-3">
         <h3 class="text-center">Welcome to Customer page!</h3>
     </div>
     <div class="container mt-3 col ">
         <label>Enter Your Name:</label>
         <input type="text" id="cname" />
         <input type="button" value="Customer Details" onclick="viewCustomerByName()" />
-        <!-- <a href="./updateCustomer.html" target="popup" onclick="viewCustomerByName()"
-        onclick="window.open('./updateCustomer.html','popup','width=700,height=700'); return false;">
-        <input type="button" value="Customer Details"/>
-        <i class="bi bi-pencil-square" type="button"></i>
-    </a><br><br> -->
         <p id="cDetails"></p>
-        <p id="cDetails2"></p>
         <label>Enter Category Name:</label>
         <input type="text" id="categoryName" />
-        <input type="button" value="View Categorys" onclick="viewCategoryByName()" /><br>
-        <p id="MyCategory"></p>
+        <input type="button" value="View Category" onclick="viewCategoryByName()" /><br>
+         <p id="MyCategory"></p>
         <label>Enter Product Name:</label>
         <input type="text" id="productName" />
         <input type="button" value="View Products" onclick="viewProductByName()" /><br>
@@ -43,14 +40,19 @@
             onclick="window.open('./order.html','popup','width=700,height=700'); return false;">
             <button>Shop Now <i class="bi bi-cart"></i></button><br><br>
         </a>
-        <input type="button" value="View All Categorys" onclick="viewAllCategory()" /><br>
-        <p id="Category"></p>
-        <input type="button" value="View All Products" onclick="viewAllProducts()" /><br>
-        <p id="product"></p>
+        <a href="./displayCategoryData.html" target="_blank"><input type="button" value="View All Category"  /></a><br /><br />
+       
+        <a href="./displayProductData.html" target="_blank"><input type="button" value="View All Products" /></a><br><br>
+        
     </div>
 
     <script src="customer.js"></script>
     <script src="admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/e872ba44e8.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

@@ -6,6 +6,9 @@
     margin-left: 50px;
     border: 1px solid white;
  }
+ footer{
+   background-color: rgb(15, 141, 232);
+ }
  .footer-img:hover{
      box-shadow: 0px 0px 5px white;
      transform: scale(1.1);
@@ -17,7 +20,7 @@
     border-radius: 10px;
  }
  .categoryCard:hover{
-    box-shadow:0px 0px 2px black;;
+    box-shadow:0px 0px 2px black;
  }
  .category-img{
     height: 150px;
@@ -41,8 +44,9 @@
     padding-top: 180px;
   }
   .team:hover{
-    box-shadow:7px 7px 12px white;
+   box-shadow:0px 0px 7px black;
    transition: 0.6s;
    border: 1px solid white;
    transform: scale(1.2);
   }
+ 
