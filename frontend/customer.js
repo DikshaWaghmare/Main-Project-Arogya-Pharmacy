@@ -39,30 +39,15 @@ function viewCustomerByName() {
           result.typeOfUser;
       }
     })
-
-    //     var tableString = "<table>",
-    //     body = document.getElementsByTagName('body')[0],
-    //     div = document.createElement('div');
-    //     var tableString = "<table>",
-    //     body = document.getElementsByTagName('body')[0],
-    //     div = document.createElement('div');
-    //     for (row = 1; row < 5; row += 1) {
-    //     tableString += "<tr>";
-    //     for (col = 1; col < 5; col += 1) {
-    //         tableString += "<td>" + "row [" + row + "]" + "col [" + col + "]" + "</td>";
-    //     }
-    //     tableString += "</tr>";
-    // }
-    // tableString += "</table>";
-    // div.innerHTML = tableString;
-    // body.appendChild(div);
-
     .catch((error) => console.log(error));
 }
+// =======================================================================================================================================
+
 // function updatCustData(){
 //   console.log("hiiii")
 
 // }
+// =======================================================================================================================================
 
 //find category by name
 function viewCategoryByName() {
@@ -87,6 +72,7 @@ function viewCategoryByName() {
     })
     .catch((error) => console.log(error));
 }
+// =======================================================================================================================================
 
 //Find product by name
 function viewProductByName() {
@@ -121,6 +107,7 @@ function viewProductByName() {
     })
     .catch((error) => console.log(error));
 }
+// =======================================================================================================================================
 
 //order function
 function order() {
@@ -162,6 +149,7 @@ function reset() {
   amount = document.getElementById("amount").value = "";
   dateOfOrder = document.getElementById("doforder").value = "";
 }
+// =======================================================================================================================================
 
 //view your own order
 function viewOrder() {
@@ -198,3 +186,4 @@ function viewOrder() {
     })
     .catch((error) => console.log(error));
 }
+// =======================================================================================================================================

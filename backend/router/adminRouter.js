@@ -2,6 +2,12 @@ let express=require("express");
 let router=express.Router();
 let adminController=require("../controller/adminController");
 
+//http://localhost:3000/api/admin/storeAdminInfo
+// router.post("/storeAdminInfo",adminController.storeAdminInfo);
+
+// //http://localhost:3000/api/admin/findAdminInfo
+// router.get("/findAdminInfo",adminController.findAdminInfo);
+
 //http://localhost:3000/api/admin/addCategory
 router.post("/addCategory",adminController.addCategory);
 

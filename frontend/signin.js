@@ -44,31 +44,9 @@ function signinUser() {
   reset();
 }
 
-// function viewCustomer() {
-  
-//   fetch("http://localhost:3000/api/customer/signIn", {
-//     method: "get",
-//   })
-//     .then((res) => res.text())
-//     .then((data) => {
-//       document.getElementById("msg").innerHTML = data.msg;
-//      // console.log(data);
-//       if(data.msg=="Admin successfully login!"){
-//         window.location.href="file:///C:/Users/gramp/OneDrive/Desktop/nodejstraining/Main%20Project-Arogya%20Pharmacy/frontend/admin.html";
-
-//     }else if(data.msg=="Customer successfully login!"){
-//       console.log(data)
-//       window.location.href="file:///C:/Users/gramp/OneDrive/Desktop/nodejstraining/Main%20Project-Arogya%20Pharmacy/frontend/customer.html";
-//     } else {
-//         document.getElementById("msg").innerHTML=data.msg;
-
-//     }
-//     })
-//     .catch((error) => console.log(error));
-//   reset();
-// }
-
 function reset() {
   document.getElementById("email").value = "";
   document.getElementById("password").value = "";
+  document.getElementById("msg").innerHTML="";
+
 }

@@ -1,6 +1,10 @@
 let express=require("express");
 let router=express.Router();
 let CustController=require("../controller/custController");
+let adminController=require("../controller/adminController");
+
+//http://localhost:3000/api/customer/signUp
+router.get("/findAllCustomers",adminController.findAllCustomers);
 
 //http://localhost:3000/api/customer/signUp
 router.post("/signUp",CustController.signUp);

@@ -19,6 +19,7 @@ function addCategory() {
     .catch((error) => console.log(error));
   reset();
 }
+// =======================================================================================================================================
 
 //Add Products
 function addProduct() {
@@ -59,6 +60,7 @@ function reset() {
   document.getElementById("qty").value = "";
   document.getElementById("cid").value = "";
 }
+// =======================================================================================================================================
 
 //find all categories
 function viewAllCategory() {
@@ -114,6 +116,7 @@ function viewAllCategory() {
     })
     .catch((error) => console.log(error));
 }
+// =======================================================================================================================================
 
 //find all products
 function viewAllProducts() {
@@ -200,6 +203,7 @@ function viewAllProducts() {
     })
     .catch((error) => console.log(error));
 }
+// =======================================================================================================================================
 
 //find all customers
 function findAllData() {
@@ -307,6 +311,7 @@ function findAllData() {
     })
     .catch((error) => console.log(error));
 }
+// =======================================================================================================================================
 
 //find all orders
 function findAllOrders() {
@@ -381,3 +386,4 @@ function findAllOrders() {
     })
     .catch((error) => console.log(error));
 }
+// =======================================================================================================================================

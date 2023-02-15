@@ -1,5 +1,7 @@
 let orderModel=require("../model/orderModel");
 
+// =======================================================================================================================================
+
 let addOrder=async(req,res)=>{
     let order=req.body;
     try {
@@ -13,7 +15,7 @@ let addOrder=async(req,res)=>{
         res.json({"msg":"Error generated:" + err});
       }
 }
-
+// =======================================================================================================================================
 let viewAllOrder = async (req, res) =>{
     try {
       let result = await orderModel.find({});
@@ -22,6 +24,7 @@ let viewAllOrder = async (req, res) =>{
       res.json(error);
   } 
   }
+// =======================================================================================================================================
 
 let  viewOrderByCustId=async(req,res)=>{
     let custId=(req.body.customerId);
@@ -37,6 +40,8 @@ let  viewOrderByCustId=async(req,res)=>{
             res.json({"msg":"Error generated "+err});
         }
 }
+// =======================================================================================================================================
+
 module.exports = {
     addOrder,viewAllOrder,viewOrderByCustId
   };
