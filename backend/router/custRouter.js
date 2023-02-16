@@ -4,7 +4,7 @@ let CustController=require("../controller/custController");
 let adminController=require("../controller/adminController");
 
 //http://localhost:3000/api/customer/signUp
-router.get("/findAllCustomers",adminController.findAllCustomers);
+//router.get("/findAllCustomers",adminController.findAllCustomers);
 
 //http://localhost:3000/api/customer/signUp
 router.post("/signUp",CustController.signUp);

@@ -209,10 +209,15 @@ function viewAllProducts() {
 function findAllData() {
   fetch("http://localhost:3000/api/admin/findAllCustomers", {
     method: "get",
+    headers: {
+      "Content-type":"application/json",
+      "Authorization":sessionStorage.getItem("token")
+    },
   })
     .then((res) => res.json())
     .then((result) => {
-      //console.log(result)
+      console.log(result)
+      console.log(sessionStorage.getItem("token"))
       //document.getElementById("customer").innerHTML =(result);
       // document.getElementById("customer").innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.name+", Email: "+obj.email+", Password: "+obj.password+", Gender: "+obj.gender+", Age: "+obj.age+", Mobile No.: "+obj.mobileNo+", Address: "+obj.address+", Type Of User: "+obj.typeOfUser).join("<br/>");
       var tableTag = document.createElement("table");
@@ -387,3 +392,24 @@ function findAllOrders() {
     .catch((error) => console.log(error));
 }
 // =======================================================================================================================================
+//add salesman
+// function addSalesman() {
+//   var _id = document.getElementById("id").value;
+//   var cname = document.getElementById("cname").value;
+//   var category = { _id: _id, Cname: cname };
+//   console.log(category);
+//   fetch("http://localhost:3000/api/admin/addSalesman", {
+//     method: "post",
+//     body: JSON.stringify(category),
+//     headers: {
+//       "Content-type": "application/json",
+//     },
+//   })
+//     .then((res) => res.json())
+//     .then((result) => {
+//       document.getElementById("cmsg").innerHTML = result.msg;
+//       console.log(result);
+//     })
+//     .catch((error) => console.log(error));
+//   reset();
+// }

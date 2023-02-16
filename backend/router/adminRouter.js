@@ -1,12 +1,10 @@
 let express=require("express");
 let router=express.Router();
 let adminController=require("../controller/adminController");
+let authToken=require("../config/authToken")
 
-//http://localhost:3000/api/admin/storeAdminInfo
-// router.post("/storeAdminInfo",adminController.storeAdminInfo);
-
-// //http://localhost:3000/api/admin/findAdminInfo
-// router.get("/findAdminInfo",adminController.findAdminInfo);
+//http://localhost:3000/api/admin/findAllCustomers 
+router.get("/findAllCustomers",authToken.verifyUserToken,adminController.findAllCustomers);
 
 //http://localhost:3000/api/admin/addCategory
 router.post("/addCategory",adminController.addCategory);
@@ -20,10 +18,10 @@ router.post("/addProduct",adminController.addProduct);
 //http://localhost:3000/api/admin/viewAllProducts
 router.get("/viewAllProducts",adminController.viewAllProduct);
 
-//http://localhost:3000/api/admin/findAllCustomers 
-router.get("/findAllCustomers",adminController.findAllCustomers);
+//http://localhost:3000/api/admin/addSalesman
+router.post("/addSalesman",adminController.addSalesman);
 
-//http://localhost:3000/api/admin/findAllAdmin
-//router.get("/findAllAdmin",adminController.findAllAdmin);
+//http://localhost:3000/api/admin/viewAllSalesman
+router.get("/viewAllSalesman",adminController.viewAllSalesman);
 
 module.exports=router;

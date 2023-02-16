@@ -1,6 +1,7 @@
 let custModel = require("../model/customerModel");
 let categoryModel = require("../model/categoryModel");
 let productModel = require("../model/productModel");
+let jwt = require("jsonwebtoken");
 let bcrypt = require("bcrypt");
 
 // =======================================================================================================================================
@@ -21,18 +22,19 @@ let comparePasswordWithHash = async (password, hashPassword) => {
 
 let signUp = async (req, res) => {
   let customer = req.body;
-  let emaildata = await custModel.find({ email: customer.email });
+  //let emaildata = await custModel.find({ email: customer.email });
   if (customer.typeOfUser == "admin") {
     res.json({ msg: "You can not create Admin Account! Try again..." });
-  } else if (emaildata != null) {
-    res.json({ msg: "Email must be unique! Try again..." });
-  } else {
+  } 
+  // else if (emaildata != null) {
+  //   res.json({ msg: "Email must be unique! Try again..." });
+  // } 
+  else {
     try {
+      
       customer.password = await convertPasswordInHash(customer.password);
       let result = await custModel.insertMany(customer);
       if (result != null) {
-        res.json({ msg: "Account created Successfully!" });
-      } else if (result != null) {
         res.json({ msg: "Account created Successfully!" });
       } else {
         res.json({ msg: "Something went wrong.....Try Again!" });
@@ -69,31 +71,31 @@ let signIn = async (req, res) => {
         findUser.password
       );
       if (result) {
-        console.log(findUser);
+        //console.log(findUser);
         // we will write the code
         let payload = { emailid: findUser.emailid };
         let tokenValue = jwt.sign(payload, "secretKey");
         if (findUser.typeOfUser == "admin" && signin.typeOfUser == "admin") {
-          response.json({
-            msg: "Admin done login successfully!",
+          res.json({
+            msg: "Admin successfully login!",
             token: tokenValue,
           });
         } else if (
           findUser.typeOfUser == "customer" &&
           signin.typeOfUser == "customer"
         ) {
-          response.json({
-            msg: "Customer done login successfully!",
+          res.json({
+            msg: "Customer successfully login!",
             token: tokenValue,
           });
         } else {
-          response.json({ msg: "type of user may be wrong" });
+          res.json({ msg: "type of user may be wrong" });
         }
       } else {
-        response.json({ msg: "Password is wrong" });
+        res.json({ msg: "Password is wrong" });
       }
     } else {
-      response.json({ msg: "EmailId is wrong" });
+      res.json({ msg: "EmailId is wrong" });
     }
   } catch (err) {
     res.json({ msg: "Error generated:" + err });

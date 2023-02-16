@@ -2,6 +2,7 @@ let mongoose = require("mongoose");
 let url = "mongodb://127.0.0.1:27017/projectdb"; //it contains url details with database name
 mongoose.set("strictQuery", true); //for handling err on mongoose
 let custModel = require("../model/customerModel");
+let custController=require("../controller/custController")
 
 let dbConnection = mongoose
   .connect(url)
@@ -21,11 +22,14 @@ let addAdmin = async (req, res) => {
       address: "Mumbai",
       typeOfUser: "admin",
     };
+    
     let value = await custModel.findOne({ typeOfUser: admin.typeOfUser });
     if (value == null) {
+      admin.password= await custController.convertPasswordInHash(admin.password)
       custModel.insertMany(admin);
       console.log("Admin added successfuly!");
     } else {
+      console.log(admin.name);
       console.log("Admin already exists!");
     }
   } catch (err) {
@@ -33,23 +37,4 @@ let addAdmin = async (req, res) => {
   }
 };
 
-//TOKEN
-let jwt = require("jsonwebtoken");
-let verifyUserToken = (request,response,next)=> {
-    try{
-    let token = request.headers.authorization;
-    if(token==undefined){
-        response.json({
-            msg:"Unathorized request or user"
-        })
-    }else {
-        let verifyToken = jwt.verify(token,"secretKey");
-        console.log(verifyToken);
-        next();
-    }
-}catch(ex){
-  response.json({ msg:"Invalid token "+ex});
-}
-    
-}
-module.exports = { dbConnection, addAdmin,verifyUserToken };
+module.exports = { dbConnection, addAdmin };

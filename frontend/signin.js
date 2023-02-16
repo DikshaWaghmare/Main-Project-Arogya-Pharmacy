@@ -27,18 +27,18 @@ function signinUser() {
   })
     .then((res) => res.json())
     .then((data) => {
-      document.getElementById("msg").innerHTML = data.msg;
-     // console.log(data);
-      if(data.msg=="Admin successfully login!"){
+      // document.getElementById("msg").innerHTML = data.msg;
+      // document.getElementById("msg").innerHTML = data.msg;
+      console.log(data);
+      (sessionStorage.setItem("token",data.token));
+      if (data.msg == "Admin successfully login!") {
         window.open("./admin.html");
-
-    }else if(data.msg=="Customer successfully login!"){
-      //console.log(data)
-      window.open("./customer.html");
-    } else {
-        document.getElementById("msg").innerHTML=data.msg;
-
-    }
+      } else if (data.msg == "Customer successfully login!") {
+        //console.log(data)
+        window.open("./customer.html");
+      } else {
+        document.getElementById("msg").innerHTML = data.msg;
+      }
     })
     .catch((error) => console.log(error));
   reset();
@@ -47,6 +47,5 @@ function signinUser() {
 function reset() {
   document.getElementById("email").value = "";
   document.getElementById("password").value = "";
-  document.getElementById("msg").innerHTML="";
-
+  document.getElementById("msg").innerHTML = "";
 }
