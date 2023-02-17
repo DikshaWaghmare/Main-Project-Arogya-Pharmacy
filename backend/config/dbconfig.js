@@ -29,7 +29,7 @@ let addAdmin = async (req, res) => {
       custModel.insertMany(admin);
       console.log("Admin added successfuly!");
     } else {
-      console.log(admin.name);
+      // console.log(admin.name);
       console.log("Admin already exists!");
     }
   } catch (err) {

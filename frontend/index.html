@@ -47,7 +47,10 @@
             </button>
         </div>
     </nav>
+
     <section  style="background-color: rgb(239, 251, 252);">
+
+        <!-- opening part -->
         <section>
             <div class="container pt-5 d-flex" style="height:420px">
                 <div class=" text-center ms-5" style="width: 50%; padding: 70px 30px;">
@@ -63,6 +66,8 @@
                 </div>
             </div>
         </section>
+
+        <!-- crousal -->
         <div id="carouselExampleControls" class="carousel slide container mt-5 mb-4" style="width:70%;  "
             data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -91,15 +96,18 @@
             </button>
         </div>
 
+        <!-- categories -->
         <div class="container">
             <h4>Category Available!</h4>
             <div class="d-flex flex-wrap">
                 <div class=" my-3 mx-2 border categoryCard">
                     <img src="./Images/cold&Cough.jpg" class="card-img-top category-img" alt="...">
                     <div class="card-body">
-                        <a href="./displayCategoryData.html" target="_blank" style="text-decoration:none;">
-                            <h5 class="text-center mt-3 text-dark">Cold & Cough</h5>
-                        </a>
+                        <h5 class="text-center mt-3 text-dark categoryCardHeading" id="Cold & Cough" onclick="viewCategoryByName()">Cold & Cough</h5>
+                        <span id="MyCategory"></span>
+                        <!-- <a href="./displayCategoryData.html" target="_blank" style="text-decoration:none;">
+                            <h5 class="text-center mt-3 text-dark" >Cold & Cough</h5>
+                        </a> -->
                     </div>
                 </div>
 
@@ -177,6 +185,7 @@
             </div>
         </div>
     </section>
+
     <!-- About us -->
     <section id="about" style="background-color: gainsboro">
         <section>
@@ -310,6 +319,7 @@ background-repeat: no-repeat;">
                 </div>
         </section>
     </section>
+
     <footer class="text-white " style="background-color:rgb(46, 157, 176);">
         <div class="container">
             <div class="container d-flex flex-wrap justify-content-evenly">
@@ -366,7 +376,7 @@ background-repeat: no-repeat;">
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/e872ba44e8.js" crossorigin="anonymous"></script>
-
+<script src="customer.js"></script>
 </body>
 
 

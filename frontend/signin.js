@@ -17,7 +17,7 @@ function signinUser() {
     password: passwordValue,
     typeOfUser: typeOfUser,
   };
-  console.log(customers);
+  //console.log(customers);
   fetch("http://localhost:3000/api/customer/signIn", {
     method: "post",
     body: JSON.stringify(customers),
@@ -29,8 +29,9 @@ function signinUser() {
     .then((data) => {
       // document.getElementById("msg").innerHTML = data.msg;
       // document.getElementById("msg").innerHTML = data.msg;
-      console.log(data);
-      (sessionStorage.setItem("token",data.token));
+      //console.log(data);
+      //console.log(data.token);
+      localStorage.setItem("token",data.token)
       if (data.msg == "Admin successfully login!") {
         window.open("./admin.html");
       } else if (data.msg == "Customer successfully login!") {
@@ -41,10 +42,11 @@ function signinUser() {
       }
     })
     .catch((error) => console.log(error));
-  reset();
+  // reset();
 }
 
 function reset() {
+  alert("hiiii")
   document.getElementById("email").value = "";
   document.getElementById("password").value = "";
   document.getElementById("msg").innerHTML = "";

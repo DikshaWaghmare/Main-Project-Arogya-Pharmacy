@@ -15,7 +15,7 @@ router.post("/signIn",CustController.signIn);
 //http://localhost:3000/api/customer/findCustomerByName 
 router.post("/findCustomerByName",CustController.findCustomerByName);
 
-//http://localhost:3000/api/customer/viewCategoryByName 
+//http://localhost:3000/api/customer/viewCategoryByName
 router.post("/viewCategoryByName",CustController.viewCategoryByName);
 
 //http://localhost:3000/api/customer/viewProductByName

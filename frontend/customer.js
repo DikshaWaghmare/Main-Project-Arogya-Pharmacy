@@ -51,8 +51,10 @@ function viewCustomerByName() {
 
 //find category by name
 function viewCategoryByName() {
-  var cname = document.getElementById("categoryName").value;
-  var Category = { Cname: cname };
+  // alert("Its working!")
+  // var cname = document.get("Cold & Cough").value;
+  // var cname="Cold & Cough"
+  // var Category = { Cname: cname };
   fetch("http://localhost:3000/api/customer/viewCategoryByName", {
     method: "post",
     body: JSON.stringify(Category),
@@ -62,9 +64,14 @@ function viewCategoryByName() {
   })
     .then((res) => res.json())
     .then((result) => {
+      var secondRowSecondCol = document.createElement("td");
+      var secondRowSecondColV = document.createTextNode(result[i].Cname);
+      secondRowSecondCol.appendChild(secondRowSecondColV);
+
       if (result.msg != null) {
         output = document.getElementById("MyCategory");
         output.innerHTML = result.msg;
+
       } else {
         output = document.getElementById("MyCategory");
         output.innerHTML ="Id: " + result._id + "<br>Category Name:" + result.Cname;
