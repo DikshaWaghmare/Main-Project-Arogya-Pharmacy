@@ -9,5 +9,5 @@ router.post("/addOrder",orderController.addOrder);
 router.get("/viewAllOrder",orderController.viewAllOrder);
 
 //http://localhost:3000/api/order/viewOrderByCustId
-router.post("/viewOrderByCustId",orderController.viewOrderByCustId);
+router.get("/viewOrderByCustId/:customerId",orderController.viewOrderByCustId);
 module.exports=router;

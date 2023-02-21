@@ -1,8 +1,44 @@
+function greeting(){
+  var userDetails=localStorage.getItem("userName");
+  var cname=userDetails.replace(/"/g,'')
+  console.log(cname)
+  fetch("http://localhost:3000/api/customer/findCustomerByName/"+cname, {
+    method: "get",
+    headers:{
+      "authorization":localStorage.getItem("token"),
+    }
+})
+.then((res) => res.json())
+.then((result) => {
+  console.log(result)
+  var today = new Date();
+  let hoursMin = today.getHours() + '.' + today.getMinutes();
+  console.log(hoursMin);
+  if(hoursMin<=11.59 ){
+  var hTag = document.createElement("h3");    
+  var hTagContent = document.createTextNode("Good Morning🌄 "+result.name);  
+  }else if(hoursMin>=12.00 && hoursMin<=15.59){
+    var hTag = document.createElement("h3");  
+    var hTagContent = document.createTextNode("Good Afternoon🕑 "+result.name);  
+  }else if(hoursMin>=16.00 && hoursMin<=20.59){
+    var hTag = document.createElement("h3");     
+    var hTagContent = document.createTextNode("Good Evening🌆 "+result.name); 
+  }else{
+    var hTag = document.createElement("h3");   
+    var hTagContent = document.createTextNode("Good Night🌃 "+result.name); 
+  }
+  hTag.appendChild(hTagContent);  
+  document.getElementById("cheading").appendChild(hTag);
+})
+.catch((error) => console.log(error));
+}
+
+// // =======================================================================================================================================
 
 //find customer by Name
 function viewCustomerByName() {
   // var cname = document.getElementById("cname").value;
-   var userDetails=localStorage.getItem("user");
+   var userDetails=localStorage.getItem("userName");
    var cname=userDetails.replace(/"/g,'')
   console.log(cname)
   fetch("http://localhost:3000/api/customer/findCustomerByName/"+cname, {
@@ -13,24 +49,6 @@ function viewCustomerByName() {
   })
     .then((res) => res.json())
     .then((result) => {
-      var today = new Date();
-      let hoursMin = today.getHours() + '.' + today.getMinutes();
-      console.log(hoursMin);
-      if(hoursMin<=11.59 ){
-      var hTag = document.createElement("h3");    
-      var hTagContent = document.createTextNode("Good Morning🌄 "+result.name);  
-      }else if(hoursMin>=12.00 && hoursMin<=15.59){
-        var hTag = document.createElement("h3");  
-        var hTagContent = document.createTextNode("Good Afternoon🕑 "+result.name);  
-      }else if(hoursMin>=16.00 && hoursMin<=20.59){
-        var hTag = document.createElement("h3");     
-        var hTagContent = document.createTextNode("Good Evening🌆 "+result.name); 
-      }else{
-        var hTag = document.createElement("h3");   
-        var hTagContent = document.createTextNode("Good Night🌃 "+result.name); 
-      }
-      hTag.appendChild(hTagContent);  
-      document.getElementById("cheading").appendChild(hTag);
       if (result.msg != null) {
         output = document.getElementById("cDetails");
         output.innerHTML = result.msg;
@@ -154,8 +172,7 @@ function order() {
   var productId = document.getElementById("pid").value;
   var customerId = document.getElementById("customerId").value;
   var productqty = document.getElementById("qty").value;
-  var amount = document.getElementById("amount").value;
-  var dateOfOrder = document.getElementById("doforder").value;
+  var dateOfOrder = new Date();
   var order = {
     categoryId: categoryId,
     productId: productId,
@@ -192,19 +209,15 @@ function reset() {
 
 //view your own order
 function viewOrder() {
-  var cid = document.getElementById("custId").value;
-  var order = {
-    customerId: cid,
-  };
-  fetch("http://localhost:3000/api/order/viewOrderByCustId", {
-    method: "post",
-    body: JSON.stringify(order),
-    headers: {
-      "Content-type": "application/json",
-    },
+  var userId=localStorage.getItem("userId");
+   var custId=userId.replace(/"/g,'')
+  console.log(custId);
+  fetch("http://localhost:3000/api/order/viewOrderByCustId/"+custId, {
+    method: "get",
   })
     .then((res) => res.json())
     .then((result) => {
+      // console.log(result);
       if (result.msg != null) {
         document.getElementById("MyOrder").innerHTML = result.msg;
       } else {
@@ -217,8 +230,6 @@ function viewOrder() {
           result.customerId +
           "<br>Product Quantity: " +
           result.productqty +
-          "<br>Amount: " +
-          result.amount +
           "<br>Date Of Order: " +
           result.dateOfOrder;
       }

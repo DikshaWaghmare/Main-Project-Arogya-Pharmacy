@@ -12,13 +12,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 
-<body>
-    <a class="btn btn-secondary ms-4 mt-5" href="signIn.html">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-    <div class="container text-center mt-2 p-3">
-        <h3>Welcome to Admin page!</h3>
+<body onload="greeting()">
+     <div class="container border text-center mt-3 py-2  " style="width:80%" id="cheading">
+    </div>
+    <div class="p-3 text-end mt-3 pe-5">
+        <a class="btn btn-primary" href="index.html">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
     </div>
 
-    <div class="container ms-5 mt-5">
+    <div class="container border d-flex ms-5 mt-5">
+       
+        <div class="">
+
+        </div>
+        <div class="">
+            
+        </div>
+        <div class="">
+            
+        </div>
+
+
+
         <a href="./addCategory.html" target="popup"
             onclick="window.open('./addCategory.html','popup','width=700,height=700'); return false;">
             <input type="button" value="Add Category" />

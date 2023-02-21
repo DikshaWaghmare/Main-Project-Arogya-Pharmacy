@@ -27,7 +27,7 @@ let viewAllOrder = async (req, res) =>{
 // =======================================================================================================================================
 
 let  viewOrderByCustId=async(req,res)=>{
-    let custId=(req.body.customerId);
+    let custId=req.params.customerId;
     try{
         let result=await orderModel.findOne({customerId:custId});
         if(result==null){

@@ -29,9 +29,9 @@ function signinUser() {
     .then((data) => {
       
       // document.getElementById("msg").innerHTML = data.msg;
-      console.log(data.findUser.name);
-      localStorage.setItem("user",JSON.stringify(data.findUser.name))
-  
+      // console.log(data.findUser.name);
+      localStorage.setItem("userName",JSON.stringify(data.findUser.name))
+      localStorage.setItem("userId",JSON.stringify(data.findUser._id))
       localStorage.setItem("token",data.token)
     
       if (data.msg == "Admin successfully login!") {

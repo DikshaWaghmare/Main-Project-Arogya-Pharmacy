@@ -6,42 +6,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Page!</title>
-    <link rel="stylesheet" href="custStyle.css"/>
+    <link rel="stylesheet" href="custStyle.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 
-<body style="background-color: rgb(221, 243, 155);">
+<body style="background-color: rgb(105, 185, 150);" onload="greeting()">
     <div class="container border text-center mt-3 py-2  " style="width:80%" id="cheading">
     </div>
     <div class="p-3 text-end mt-3 pe-5">
         <a class="btn btn-primary" href="index.html">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
     </div>
     <div class="container-fluid mt-2 d-flex flex-wrap ">
-        
-            <div class=" border border-danger ps-5 py-3" style="width:25%; height:500px">
-                <input type="button" value="View Your Details" onclick="viewCustomerByName()" /><br>
-                <p id="cDetails"></p>
-                <input type="button" value="View Category" onclick="viewCategoryByName()" /><br>
-                <p id="MyCategory"></p>
-                <a href="./displayCategoryData.html" target="_blank"><input type="button" value="View All Category"  /></a><br /><br />
-                <a href="./displayProductData.html" target="_blank"><input type="button" value="View All Products" /></a><br><br>
-        
-            </div>
-            <div class=" border border-danger" style="width:50%; height:500px">
+
+        <div class=" px-3 py-3" style="width:25%; height:500px">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item" style="width:300px;">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed bg-light" onclick="viewCustomerByName()" style="width: 300px;  height: 50px;" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                            aria-controls="flush-collapseOne">
+                            View Your Details
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p id="cDetails"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mt-3" style="width:300px">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed bg-light" onclick="viewOrder()" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                            aria-controls="flush-collapseTwo">
+                            View Your Orders
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p id="MyOrder"></p>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
-            <div class=" border border-danger ps-5 py-3" style="width: 25%; height:500px">
+        </div>
+
+        <div class="" style="width:50%; height:500px">
+            <img src="./Images/tackecaremsg.jpg" style="height: 100%; width:100%"/>
+        </div>
+        <div class=" px-5 py-3 " style="width: 25%; height:500px">
+
+            <div class="">
                 <a href="./order.html" target="popup" class="me-3"
-                onclick="window.open('./order.html','popup','width=700,height=700'); return false;">
-                <button>Shop Now <i class="bi bi-cart"></i></button>
-            </a>
-            <input type="button" value="View Your order" onclick="viewOrder()" /><br>
-            <p id="MyOrder"></p> 
+                    onclick="window.open('./order.html','popup','width=700,height=700'); return false;">
+                    <button>Shop Now <i class="bi bi-cart"></i></button>
+                </a><br /><br />
+                <a href="./displayCategoryData.html" target="_blank"><input type="button"
+                        value="View All Category" /></a><br /><br />
+                <a href="./displayProductData.html" target="_blank"><input type="button"
+                        value="View All Products" /></a><br><br>
             </div>
 
-       
+        </div>
+
+
         <!-- <p id="cDetails"></p> -->
         <!-- <label>Enter Category Name:</label>
         <input type="text" id="categoryName" />
@@ -54,8 +88,8 @@
         <label>Enter Your customerId:</label>
         <input type="text" id="custId" />
         -->
-        
-        
+
+
     </div>
 
     <script src="customer.js"></script>
@@ -63,7 +97,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/e872ba44e8.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e872ba44e8.js" crossorigin="anonymous"></script>
 
 </body>
 
