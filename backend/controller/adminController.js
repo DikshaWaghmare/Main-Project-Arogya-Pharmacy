@@ -61,9 +61,10 @@ let viewAllProduct = async (req, res) => {
 let findAllCustomers = async (req, res) => {
   try {
     let result = await customerModel.find({});
+    // if()
     res.send(result);
   } catch (error) {
-    res.json(error);
+      res.json(error);
   }
 };
 

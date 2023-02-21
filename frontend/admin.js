@@ -89,7 +89,7 @@ function viewAllCategory() {
       var firstRowSecondColumnV = document.createTextNode("Name");
       firstRowSecondColumn.appendChild(firstRowSecondColumnV);
 
-      firstRow.appendChild(firstRowfirstColumn);
+      firstRow.appendChild(firstRowfirstColumn,);
       firstRow.appendChild(firstRowSecondColumn);
       tableTag.appendChild(firstRow);
 
@@ -217,7 +217,9 @@ function findAllData() {
   })
     .then((res) => res.json())
     .then((result) => {
-     // console.log(result)
+      console.log(result.msg)
+      // console.log(token)
+      if(result.msg==null){
       //document.getElementById("customer").innerHTML =(result);
       // document.getElementById("customer").innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.name+", Email: "+obj.email+", Password: "+obj.password+", Gender: "+obj.gender+", Age: "+obj.age+", Mobile No.: "+obj.mobileNo+", Address: "+obj.address+", Type Of User: "+obj.typeOfUser).join("<br/>");
       var tableTag = document.createElement("table");
@@ -313,6 +315,11 @@ function findAllData() {
         tableTag.setAttribute("border", "1");
       }
       document.getElementById("DataView").appendChild(tableTag);
+    }else if(result.msg=="Error generated:JsonWebTokenError: jwt malformed"){
+      document.getElementById("DataView").innerHTML=("invalid token found! Login again!");
+    }else{
+      document.getElementById("DataView").innerHTML=(result.msg);
+    }
     })
     .catch((error) => console.log(error));
 }

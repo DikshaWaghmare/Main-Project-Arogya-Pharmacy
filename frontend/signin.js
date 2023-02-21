@@ -27,27 +27,29 @@ function signinUser() {
   })
     .then((res) => res.json())
     .then((data) => {
+      
       // document.getElementById("msg").innerHTML = data.msg;
-      // document.getElementById("msg").innerHTML = data.msg;
-      //console.log(data);
-      //console.log(data.token);
+      console.log(data.findUser.name);
+      localStorage.setItem("user",JSON.stringify(data.findUser.name))
+  
       localStorage.setItem("token",data.token)
+    
       if (data.msg == "Admin successfully login!") {
         window.open("./admin.html");
       } else if (data.msg == "Customer successfully login!") {
-        //console.log(data)
+        
         window.open("./customer.html");
       } else {
         document.getElementById("msg").innerHTML = data.msg;
       }
     })
     .catch((error) => console.log(error));
-  // reset();
+  reset();
 }
 
 function reset() {
-  alert("hiiii")
+  // alert("hiiii")
   document.getElementById("email").value = "";
   document.getElementById("password").value = "";
-  document.getElementById("msg").innerHTML = "";
+  document.getElementById("msg").innerText = "";
 }

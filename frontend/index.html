@@ -48,7 +48,7 @@
         </div>
     </nav>
 
-    <section  style="background-color: rgb(239, 251, 252);">
+    <section style="background-color: rgb(239, 251, 252);">
 
         <!-- opening part -->
         <section>
@@ -103,10 +103,11 @@
                 <div class=" my-3 mx-2 border categoryCard">
                     <img src="./Images/cold&Cough.jpg" class="card-img-top category-img" alt="...">
                     <div class="card-body">
-                        <h5 class="text-center mt-3 text-dark categoryCardHeading" id="Cold & Cough" onclick="viewCategoryByName()">Cold & Cough</h5>
-                        <span id="MyCategory"></span>
-                        <!-- <a href="./displayCategoryData.html" target="_blank" style="text-decoration:none;">
-                            <h5 class="text-center mt-3 text-dark" >Cold & Cough</h5>
+                         <h5 class="text-center mt-3 text-dark categoryCardHeading" id="Cold&Cough" onclick="viewProductByCategoryId()">Cold and Cough</h5>
+                       <!-- <span id="MyCategory"></span> -->
+                        <!-- <a href="./displayProductData.html" target="_blank" style="text-decoration:none;">
+                            <h5 class="text-center mt-3 text-dark categoryCardHeading" onclick="viewProductByCategoryId()" id="Cold&Cough">Cold & Cough</h5>
+                            <span id="MyCategory"></span>
                         </a> -->
                     </div>
                 </div>
@@ -157,27 +158,21 @@
 
         <div class="container">
             <h4 class="mt-4"><i class="bi bi-currency-rupee"></i>Payment Available With...</h4>
-            <div class="d-flex mx-auto flex-wrap">
-                <div class="mx-3">
-                    <div class=" mt-3 text-center  border paymentCard">
-                        <img src="./Logos/0_google_pay_logo.jpg" class="my-3" alt="...">
-                    </div>
+            <div class="d-flex mx-auto flex-wrap pb-5 justify-content-evenly" >
+                <div class="mx-3 mt-3 border text-center payCard paymentCard">
+                    <img src="./Logos/0_google_pay_logo.jpg" class="my-3" alt="Google py img">
                     <a href="#" target="_blank" style="text-decoration:none;">
-                        <h5 class="text-center text-dark mb-3 mt-1">Google Pay </h5>
+                        <h5 class="text-center text-dark mb-3 ">Google Pay </h5>
                     </a>
                 </div>
-                <div class="mx-3">
-                    <div class=" mt-3 text-center  border paymentCard">
-                        <img src="./Logos/phonepay.png" class="my-3" alt="...">
-                    </div>
+                <div class="mx-3 mt-3 border text-center payCard paymentCard">
+                    <img src="./Logos/phonepay.png" class="my-3" alt="Phonepay img">
                     <a href="#" target="_blank" style="text-decoration:none;">
                         <h5 class="text-center text-dark mb-3 mt-1">Phone Pay</h5>
                     </a>
                 </div>
-                <div class="mx-3">
-                    <div class=" mt-3 text-center  border paymentCard">
-                        <img src="./Logos/paytm.png" class="my-3" alt="...">
-                    </div>
+                <div class="mx-3 mt-3 border text-center payCard paymentCard">
+                    <img src="./Logos/paytm.png" class="my-3" alt="Paytm img">
                     <a href="#" target="_blank" style="text-decoration:none;">
                         <h5 class="text-center text-dark mb-3 mt-1">Paytm Karo</h5>
                     </a>
@@ -356,9 +351,12 @@ background-repeat: no-repeat;">
                 <div style="margin-top: 50px;">
                     <ul style="list-style-type: none;">
                         <h4 class="mb-4">Go to...</h4>
-                        <li><a class="fs-5 text-white" href="#home" style="text-decoration:none;"><i class="bi bi-house"></i>  Home</a></li>
-                        <li><a class="fs-5 text-white"href="#about" style="text-decoration:none;"><i class="bi bi-people fs-4"></i> About</a></li>
-                        <li><a class="fs-5 text-white"href="#contactus" style="text-decoration:none;"><i class="bi bi-envelope"></i> ContactUs</a></li>
+                        <li><a class="fs-5 text-white" href="#home" style="text-decoration:none;"><i
+                                    class="bi bi-house"></i> Home</a></li>
+                        <li><a class="fs-5 text-white" href="#about" style="text-decoration:none;"><i
+                                    class="bi bi-people fs-4"></i> About</a></li>
+                        <li><a class="fs-5 text-white" href="#contactus" style="text-decoration:none;"><i
+                                    class="bi bi-envelope"></i> ContactUs</a></li>
                     </ul>
                 </div>
             </div>
@@ -376,7 +374,7 @@ background-repeat: no-repeat;">
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/e872ba44e8.js" crossorigin="anonymous"></script>
-<script src="customer.js"></script>
+    <script src="customer.js"></script>
 </body>
 
 

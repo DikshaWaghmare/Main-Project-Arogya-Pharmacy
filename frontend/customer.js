@@ -1,18 +1,36 @@
+
 //find customer by Name
 function viewCustomerByName() {
-  var cname = document.getElementById("cname").value;
-  var customers = {
-    name: cname,
-  };
-  fetch("http://localhost:3000/api/customer/findCustomerByName", {
-    method: "post",
-    body: JSON.stringify(customers),
-    headers: {
-      "Content-type": "application/json",
-    },
+  // var cname = document.getElementById("cname").value;
+   var userDetails=localStorage.getItem("user");
+   var cname=userDetails.replace(/"/g,'')
+  console.log(cname)
+  fetch("http://localhost:3000/api/customer/findCustomerByName/"+cname, {
+    method: "get",
+    headers:{
+      "authorization":localStorage.getItem("token"),
+    }
   })
     .then((res) => res.json())
     .then((result) => {
+      var today = new Date();
+      let hoursMin = today.getHours() + '.' + today.getMinutes();
+      console.log(hoursMin);
+      if(hoursMin<=11.59 ){
+      var hTag = document.createElement("h3");    
+      var hTagContent = document.createTextNode("Good Morning🌄 "+result.name);  
+      }else if(hoursMin>=12.00 && hoursMin<=15.59){
+        var hTag = document.createElement("h3");  
+        var hTagContent = document.createTextNode("Good Afternoon🕑 "+result.name);  
+      }else if(hoursMin>=16.00 && hoursMin<=20.59){
+        var hTag = document.createElement("h3");     
+        var hTagContent = document.createTextNode("Good Evening🌆 "+result.name); 
+      }else{
+        var hTag = document.createElement("h3");   
+        var hTagContent = document.createTextNode("Good Night🌃 "+result.name); 
+      }
+      hTag.appendChild(hTagContent);  
+      document.getElementById("cheading").appendChild(hTag);
       if (result.msg != null) {
         output = document.getElementById("cDetails");
         output.innerHTML = result.msg;
@@ -20,7 +38,7 @@ function viewCustomerByName() {
         output = document.getElementById("cDetails");
         output.innerHTML =
           "Id: " +
-          result._id +
+          result._id+
           "<br>Name:" +
           result.name +
           "<br>Email: " +
@@ -41,33 +59,25 @@ function viewCustomerByName() {
     })
     .catch((error) => console.log(error));
 }
-// =======================================================================================================================================
+// // =======================================================================================================================================
 
-// function updatCustData(){
-//   console.log("hiiii")
+// // function updatCustData(){
+// //   console.log("hiiii")
 
-// }
-// =======================================================================================================================================
+// // }
+// // =======================================================================================================================================
 
-//find category by name
+// //find category by name
+
 function viewCategoryByName() {
-  // alert("Its working!")
-  // var cname = document.get("Cold & Cough").value;
-  // var cname="Cold & Cough"
-  // var Category = { Cname: cname };
-  fetch("http://localhost:3000/api/customer/viewCategoryByName", {
-    method: "post",
-    body: JSON.stringify(Category),
-    headers: {
-      "Content-type": "application/json",
-    },
+  var cname=document.getElementById("Cold&Cough").innerHTML;
+   //console.log(cname)
+  //  var Category = { Cname: cname };
+  fetch("http://localhost:3000/api/customer/viewCategoryByName/"+cname, {
+    method: "get",
   })
     .then((res) => res.json())
     .then((result) => {
-      var secondRowSecondCol = document.createElement("td");
-      var secondRowSecondColV = document.createTextNode(result[i].Cname);
-      secondRowSecondCol.appendChild(secondRowSecondColV);
-
       if (result.msg != null) {
         output = document.getElementById("MyCategory");
         output.innerHTML = result.msg;
@@ -79,27 +89,49 @@ function viewCategoryByName() {
     })
     .catch((error) => console.log(error));
 }
-// =======================================================================================================================================
+// // =======================================================================================================================================
 
-//Find product by name
-function viewProductByName() {
-  var pname = document.getElementById("productName").value;
-  var product = {
-    pname: pname,
-  };
-  fetch("http://localhost:3000/api/customer/viewProductByName", {
-    method: "post",
-    body: JSON.stringify(product),
-    headers: {
-      "Content-type": "application/json",
-    },
+// //Find product by name
+// function viewProductByName() {
+//   var pname = document.getElementById("productName").value;
+  
+//   fetch("http://localhost:3000/api/customer/viewProductByName/"+pname, {
+//     method: "get"
+//   })
+//     .then((res) => res.json())
+//     .then((result) => {
+//       if (result.msg != null) {
+//         document.getElementById("Myproduct").innerHTML = result.msg;
+//       } else {
+//         document.getElementById("Myproduct").innerHTML =
+//           "Id: " +
+//           result._id +
+//           "<br>Product Name: " +
+//           result.pname +
+//           "<br>Product price: " +
+//           result.price +
+//           "<br>Product Quantity: " +
+//           result.quantity +
+//           "<br>Category Id: " +
+//           result.cid;
+//       }
+//     })
+//     .catch((error) => console.log(error));
+// }
+// // =======================================================================================================================================
+// //Find product by category name
+function viewProductByCategoryId() {
+ 
+  fetch("http://localhost:3000/api/customer/viewProductByCategoryId/"+cid, {
+    method: "get",
   })
     .then((res) => res.json())
     .then((result) => {
       if (result.msg != null) {
-        document.getElementById("Myproduct").innerHTML = result.msg;
+        document.getElementById("DataView").innerHTML = result.msg;
       } else {
-        document.getElementById("Myproduct").innerHTML =
+        // window.open("./displayProductData.html");
+        document.getElementById("DataView").innerHTML =
           "Id: " +
           result._id +
           "<br>Product Name: " +

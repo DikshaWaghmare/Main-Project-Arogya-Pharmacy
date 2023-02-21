@@ -49,49 +49,39 @@ let signIn = async (req, res) => {
   let signin = req.body;
   try {
     let findUser = await custModel.findOne({ email: signin.email }); //find cust with email
-    // if(findUser!=null){
-    // let result = await comparePasswordWithHash(signin.password,findUser.password);//compare user  current enter password and hashpassword  and return true if same otherwise return false
-    // // console.log(result);
-    // if (result != true) {
-    //   res.json({
-    //     msg: "Can not find customer or admin with this Email, check email and password again! or create new account!",
-    //   });
-    // } else if (findUser.typeOfUser == "admin") {
-    //   res.json({ msg: "Admin successfully login!" });
-    // } else{
-    //   res.json({ msg: "Customer successfully login!" });
-    // }
-    // }
-    // else{
-    //   res.json({ msg: "Fill all field correctly!" });
-    // }
+    // console.log(findUser.name)
     if (findUser != null) {
       let result = await comparePasswordWithHash(
         signin.password,
         findUser.password
       );
       if (result) {
-        //console.log(findUser);
-        // we will write the code
         let payload = { emailid: findUser.emailid };
         let tokenValue = jwt.sign(payload, "secretKey");
+       
         if (findUser.typeOfUser == "admin" && signin.typeOfUser == "admin") {
           res.json({
+            findUser,
             msg: "Admin successfully login!",
             token: tokenValue,
           });
+          // res.json(findUser);
         } else if (
           findUser.typeOfUser == "customer" &&
           signin.typeOfUser == "customer"
         ) {
           res.json({
+            findUser,
             msg: "Customer successfully login!",
             token: tokenValue,
           });
+          // res.json(findUser);
         } else {
           res.json({ msg: "type of user may be wrong" });
         }
-      } else {
+      } 
+    
+    else {
         res.json({ msg: "Password is wrong" });
       }
     } else {
@@ -104,7 +94,7 @@ let signIn = async (req, res) => {
 
 // =======================================================================================================================================
 let findCustomerByName = async (req, res) => {
-  let custName = req.body.name;
+  let custName = req.params.name;
   try {
     let result = await custModel.findOne({ name: custName });
     if (result == null) {
@@ -119,7 +109,7 @@ let findCustomerByName = async (req, res) => {
 
 // =======================================================================================================================================
 let viewCategoryByName = async (req, res) => {
-  let cname = req.body.Cname;
+  let cname = req.params.Cname;
   try {
     let result = await categoryModel.findOne({ Cname: cname });
     if (result == null) {
@@ -134,7 +124,7 @@ let viewCategoryByName = async (req, res) => {
 
 // =======================================================================================================================================
 let viewProductByName = async (req, res) => {
-  let pname = req.body.pname;
+  let pname = req.params.pname;
   try {
     let result = await productModel.findOne({ pname: pname });
     if (result == null) {
@@ -148,6 +138,20 @@ let viewProductByName = async (req, res) => {
 };
 
 // =======================================================================================================================================
+let viewProductByCategoryId = async (req, res) => {
+  let cid = req.params.cid;
+  try {
+    let result = await productModel.findOne({ cid: cid });
+    if (result == null) {
+      res.json({ msg: "Record not found!" });
+    } else {
+      res.json(result);
+    }
+  } catch (err) {
+    res.json({ msg: "Error generated " + err });
+  }
+};
+// =======================================================================================================================================
 
 module.exports = {
   convertPasswordInHash,
@@ -157,4 +161,5 @@ module.exports = {
   findCustomerByName,
   viewCategoryByName,
   viewProductByName,
+  viewProductByCategoryId
 };

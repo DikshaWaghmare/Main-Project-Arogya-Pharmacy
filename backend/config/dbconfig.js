@@ -28,10 +28,11 @@ let addAdmin = async (req, res) => {
       admin.password= await custController.convertPasswordInHash(admin.password)
       custModel.insertMany(admin);
       console.log("Admin added successfuly!");
-    } else {
-      // console.log(admin.name);
-      console.log("Admin already exists!");
-    }
+    } 
+    // else {
+    //   // console.log(admin.name);
+    //   console.log("Admin already exists!");
+    // }
   } catch (err) {
     console.log(err);
   }
