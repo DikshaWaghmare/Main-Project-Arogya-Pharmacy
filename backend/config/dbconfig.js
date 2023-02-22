@@ -16,7 +16,7 @@ let addAdmin = async (req, res) => {
       name: "Rohit Sharma",
       email: "admin@gmail.com",
       password: "admin1",
-      gender: "male",
+      gender: "M",
       age: 30,
       mobileNo: "1234567890",
       address: "Mumbai",

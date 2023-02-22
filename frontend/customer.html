@@ -18,13 +18,13 @@
     <div class="p-3 text-end mt-3 pe-5">
         <a class="btn btn-primary" href="index.html">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
     </div>
-    <div class="container-fluid mt-2 d-flex flex-wrap ">
+    <div class="container mt-2 d-flex flex-wrap ">
 
-        <div class=" px-3 py-3" style="width:25%; height:500px">
+        <div class=" px-3 py-3" style="width:35%; height:500px">
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item" style="width:300px;">
                     <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed bg-light" onclick="viewCustomerByName()" style="width: 300px;  height: 50px;" type="button"
+                        <button class="accordion-button collapsed bg-light" onclick="viewCustomerByNameByCust()" style="width: 300px;  height: 50px;" type="button"
                             data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
                             aria-controls="flush-collapseOne">
                             View Your Details
@@ -39,7 +39,7 @@
                 </div>
                 <div class="accordion-item mt-3" style="width:300px">
                     <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed bg-light" onclick="viewOrder()" type="button"
+                        <button class="accordion-button collapsed bg-light" onclick="viewOrderByCust()" type="button"
                             data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
                             aria-controls="flush-collapseTwo">
                             View Your Orders
@@ -57,10 +57,10 @@
             </div>
         </div>
 
-        <div class="" style="width:50%; height:500px">
+        <!-- <div class="" style="width:50%; height:500px">
             <img src="./Images/tackecaremsg.jpg" style="height: 100%; width:100%"/>
-        </div>
-        <div class=" px-5 py-3 " style="width: 25%; height:500px">
+        </div> -->
+        <div class=" px-5 py-3  " style="width: 35%; height:500px">
 
             <div class="">
                 <a href="./order.html" target="popup" class="me-3"
@@ -75,21 +75,22 @@
 
         </div>
 
+        <div class="p-4" style="width: 30%;">
 
-        <!-- <p id="cDetails"></p> -->
-        <!-- <label>Enter Category Name:</label>
-        <input type="text" id="categoryName" />
-        <input type="button" value="View Category" onclick="viewCategoryByName()" /><br>
-         <p id="MyCategory"></p>
-        <label>Enter Product Name:</label>
-        <input type="text" id="productName" />
-        <input type="button" value="View Products" onclick="viewProductByName()" /><br>
-        <p id="Myproduct"></p>
-        <label>Enter Your customerId:</label>
-        <input type="text" id="custId" />
-        -->
+            <!-- <label>Enter Category Name:</label> -->
+            <input type="text" id="categoryName" placeholder="Enter Category Name" />
+            <input type="button" value="View Categorys" onclick="viewCategoryByName()" /><br><br>
 
+            <!-- <label>Enter Product Name:</label> -->
+            <input type="text" id="productName" placeholder="Enter Product Name" />
+            <input type="button" value="View Products" onclick="viewProductByName()" /><br><br>
 
+            <!-- <input type="text" id="cid" placeholder="Enter Category Id" />
+            <input type="button" value="View Products" onclick="viewProductByName()" /><br><br> -->
+
+            <p id="product"></p>
+            <p id="MyCategory"></p>
+        </div>
     </div>
 
     <script src="customer.js"></script>

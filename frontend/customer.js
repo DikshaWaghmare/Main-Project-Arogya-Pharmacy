@@ -36,7 +36,7 @@ function greeting(){
 // // =======================================================================================================================================
 
 //find customer by Name
-function viewCustomerByName() {
+function viewCustomerByNameByCust() {
   // var cname = document.getElementById("cname").value;
    var userDetails=localStorage.getItem("userName");
    var cname=userDetails.replace(/"/g,'')
@@ -79,6 +79,45 @@ function viewCustomerByName() {
 }
 // // =======================================================================================================================================
 
+function viewCustomerByNameByAdmin() {
+   var cname = document.getElementById("cname").value;
+  
+  fetch("http://localhost:3000/api/customer/findCustomerByName/"+cname, {
+    method: "get",
+    headers:{
+      "authorization":localStorage.getItem("token"),
+    }
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      if (result.msg != null) {
+        output = document.getElementById("cDetails");
+        output.innerHTML = result.msg;
+      } else {
+        output = document.getElementById("cDetails");
+        output.innerHTML =
+          "Id: " +
+          result._id+
+          "<br>Name:" +
+          result.name +
+          "<br>Email: " +
+          result.email +
+          "<br>Password: " +
+          result.password +
+          "<br>Gender: " +
+          result.gender +
+          "<br>Age: " +
+          result.age +
+          "<br>Mobile No.: " +
+          result.mobileNo +
+          "<br>Address: " +
+          result.address +
+          "<br>TypeOfUser: " +
+          result.typeOfUser;
+      }
+    })
+    .catch((error) => console.log(error));
+}
 // // function updatCustData(){
 // //   console.log("hiiii")
 
@@ -88,7 +127,7 @@ function viewCustomerByName() {
 // //find category by name
 
 function viewCategoryByName() {
-  var cname=document.getElementById("Cold&Cough").innerHTML;
+  var cname=document.getElementById("categoryName").value;
    //console.log(cname)
   //  var Category = { Cname: cname };
   fetch("http://localhost:3000/api/customer/viewCategoryByName/"+cname, {
@@ -110,46 +149,18 @@ function viewCategoryByName() {
 // // =======================================================================================================================================
 
 // //Find product by name
-// function viewProductByName() {
-//   var pname = document.getElementById("productName").value;
+function viewProductByName() {
+  var pname = document.getElementById("productName").value;
   
-//   fetch("http://localhost:3000/api/customer/viewProductByName/"+pname, {
-//     method: "get"
-//   })
-//     .then((res) => res.json())
-//     .then((result) => {
-//       if (result.msg != null) {
-//         document.getElementById("Myproduct").innerHTML = result.msg;
-//       } else {
-//         document.getElementById("Myproduct").innerHTML =
-//           "Id: " +
-//           result._id +
-//           "<br>Product Name: " +
-//           result.pname +
-//           "<br>Product price: " +
-//           result.price +
-//           "<br>Product Quantity: " +
-//           result.quantity +
-//           "<br>Category Id: " +
-//           result.cid;
-//       }
-//     })
-//     .catch((error) => console.log(error));
-// }
-// // =======================================================================================================================================
-// //Find product by category name
-function viewProductByCategoryId() {
- 
-  fetch("http://localhost:3000/api/customer/viewProductByCategoryId/"+cid, {
-    method: "get",
+  fetch("http://localhost:3000/api/customer/viewProductByName/"+pname, {
+    method: "get"
   })
     .then((res) => res.json())
     .then((result) => {
       if (result.msg != null) {
-        document.getElementById("DataView").innerHTML = result.msg;
+        document.getElementById("product").innerHTML = result.msg;
       } else {
-        // window.open("./displayProductData.html");
-        document.getElementById("DataView").innerHTML =
+        document.getElementById("product").innerHTML =
           "Id: " +
           result._id +
           "<br>Product Name: " +
@@ -164,6 +175,34 @@ function viewProductByCategoryId() {
     })
     .catch((error) => console.log(error));
 }
+// // =======================================================================================================================================
+// //Find product by category name
+// function viewProductByCategoryId() {
+//  var cid=document.getElementById("productName").value;
+//   fetch("http://localhost:3000/api/customer/viewProductByCategoryId/"+cid, {
+//     method: "get",
+//   })
+//     .then((res) => res.json())
+//     .then((result) => {
+//       if (result.msg != null) {
+//         document.getElementById("product").innerHTML = result.msg;
+//       } else {
+//         // window.open("./displayProductData.html");
+//         document.getElementById("product").innerHTML =
+//           "Id: " +
+//           result._id +
+//           "<br>Product Name: " +
+//           result.pname +
+//           "<br>Product price: " +
+//           result.price +
+//           "<br>Product Quantity: " +
+//           result.quantity +
+//           "<br>Category Id: " +
+//           result.cid;
+//       }
+//     })
+//     .catch((error) => console.log(error));
+// }
 // =======================================================================================================================================
 
 //order function
@@ -178,7 +217,6 @@ function order() {
     productId: productId,
     customerId: customerId,
     productqty: productqty,
-    amount: amount,
     dateOfOrder: dateOfOrder,
   };
   console.log(order);
@@ -208,10 +246,38 @@ function reset() {
 // =======================================================================================================================================
 
 //view your own order
-function viewOrder() {
+function viewOrderByCust() {
   var userId=localStorage.getItem("userId");
    var custId=userId.replace(/"/g,'')
   console.log(custId);
+  fetch("http://localhost:3000/api/order/viewOrderByCustId/"+custId, {
+    method: "get",
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      // console.log(result);
+      if (result.msg != null) {
+        document.getElementById("MyOrder").innerHTML = result.msg;
+      } else {
+        document.getElementById("MyOrder").innerHTML =
+          "Category Id: " +
+          result.categoryId +
+          "<br>Product Id: " +
+          result.productId +
+          "<br>Customer Id: " +
+          result.customerId +
+          "<br>Product Quantity: " +
+          result.productqty +
+          "<br>Date Of Order: " +
+          result.dateOfOrder;
+      }
+    })
+    .catch((error) => console.log(error));
+}
+// =======================================================================================================================================
+function viewOrderByAdmin() {
+  var custId=document.getElementById("custId").value;
+  // console.log(custId);
   fetch("http://localhost:3000/api/order/viewOrderByCustId/"+custId, {
     method: "get",
   })

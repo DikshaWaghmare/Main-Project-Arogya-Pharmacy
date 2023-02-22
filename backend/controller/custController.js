@@ -95,16 +95,18 @@ let signIn = async (req, res) => {
 // =======================================================================================================================================
 let findCustomerByName = async (req, res) => {
   let custName = req.params.name;
-  try {
-    let result = await custModel.findOne({ name: custName });
-    if (result == null) {
-      res.json({ msg: "Enter Your Name correctly!" });
-    } else {
-      res.json(result);
+
+    try {
+      let result = await custModel.findOne({ name: custName });
+      if (result == null) {
+        res.json({ msg: "Record not Found!" });
+      } else {
+        res.json(result);
+      }
+    } catch (err) {
+      res.json({ msg: "Error generated " + err });
     }
-  } catch (err) {
-    res.json({ msg: "Error generated " + err });
-  }
+  
 };
 
 // =======================================================================================================================================
