@@ -7,6 +7,7 @@ let productSchema=mongoose.Schema({
     price:{type:Number, required:true},
     quantity:{type:Number,required:true},
     cid:{type:Number, required:true},
+    categoryName:{type:String,required:true}
 })
 let addProduct=mongoose.model("product",productSchema);
 module.exports=addProduct;

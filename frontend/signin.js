@@ -28,9 +28,10 @@ function signinUser() {
     .then((res) => res.json())
     .then((data) => {
       
-      // document.getElementById("msg").innerHTML = data.msg;
-      // console.log(data.findUser.name);
+      document.getElementById("msg").innerHTML = data.msg;
+      console.log(data.findUser.name);
       localStorage.setItem("userName",JSON.stringify(data.findUser.name))
+      localStorage.setItem("userEmail",(customers.email))
       localStorage.setItem("userId",JSON.stringify(data.findUser._id))
       localStorage.setItem("token",data.token)
     
@@ -48,8 +49,9 @@ function signinUser() {
 }
 
 function reset() {
-  // alert("hiiii")
   document.getElementById("email").value = "";
   document.getElementById("password").value = "";
-  document.getElementById("msg").innerText = "";
+}
+function cleanMsg(){
+  document.getElementById("msg").innerHTML="";
 }

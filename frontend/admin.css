@@ -10,11 +10,10 @@
     background-color: rgb(118, 185, 230);
     box-shadow: 0px 0px 5px rgb(248, 248, 244);;
 }
-body{
-    
+/* body{
     background-image: url(./Images/adminbg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 800px;
-}
+} */

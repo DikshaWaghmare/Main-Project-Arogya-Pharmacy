@@ -13,7 +13,10 @@ router.post("/signUp",CustController.signUp);
 //http://localhost:3000/api/customer/signIn
 router.post("/signIn",CustController.signIn);
 
-//http://localhost:3000/api/customer/findCustomerByName /:name
+//http://localhost:3000/api/customer/findCustomerByName/:email
+router.get("/findCustomerByEmail/:email",authToken.verifyUserToken,CustController.findCustomerByEmail);
+
+//http://localhost:3000/api/customer/findCustomerByName/:name
 router.get("/findCustomerByName/:name",authToken.verifyUserToken,CustController.findCustomerByName);
 
 //http://localhost:3000/api/customer/viewCategoryByName
@@ -22,8 +25,8 @@ router.get("/viewCategoryByName/:Cname",CustController.viewCategoryByName);
 //http://localhost:3000/api/customer/viewProductByName/:pname
 router.get("/viewProductByName/:pname",CustController.viewProductByName);
 
-//http://localhost:3000/api/customer/viewProductByCategoryId
-router.get("/viewProductByCategoryId/:cid",CustController.viewProductByCategoryId);
+//http://localhost:3000/api/customer/viewProductByCategoryName
+router.get("/viewProductByCategoryName/:categoryName",CustController.viewProductByCategoryName);
 
 //http://localhost:3000/api/customer/updatCustData
 //router.patch("/updatCustData",CustController.updatCustData);

@@ -12,86 +12,90 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 
-<body style="background-color: rgb(105, 185, 150);" onload="greeting()">
-    <div class="container border text-center mt-3 py-2  " style="width:80%" id="cheading">
+<body style="" onload="greeting()">
+    <div class="container border text-center mt-3 py-2 rounded " style="width:80%" id="cheading">
     </div>
     <div class="p-3 text-end mt-3 pe-5">
         <a class="btn btn-primary" href="index.html">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
     </div>
-    <div class="container mt-2 d-flex flex-wrap ">
-
-        <div class=" px-3 py-3" style="width:35%; height:500px">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item" style="width:300px;">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed bg-light" onclick="viewCustomerByNameByCust()" style="width: 300px;  height: 50px;" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
-                            aria-controls="flush-collapseOne">
-                            View Your Details
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <p id="cDetails"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item mt-3" style="width:300px">
-                    <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed bg-light" onclick="viewOrderByCust()" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                            aria-controls="flush-collapseTwo">
-                            View Your Orders
-                        </button>
-                    </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <p id="MyOrder"></p>
-                        </div>
-                    </div>
-                </div>
-
-
+    <div class="container d-flex flex-wrap justify-content-evenly">
+        <div>
+            <div>
+                <button class="btn btn-outline-dark " type="button"
+                    onclick="viewCustomerByEmailByCust()">My
+                    Details!</button>
+            </div>
+            <div>
+                <p id="cDetails"></p>
             </div>
         </div>
-
-        <!-- <div class="" style="width:50%; height:500px">
-            <img src="./Images/tackecaremsg.jpg" style="height: 100%; width:100%"/>
-        </div> -->
-        <div class=" px-5 py-3  " style="width: 35%; height:500px">
-
+        <div>
+            <a href="./displayCategoryData.html" target="popup" class="me-3"
+                onclick="window.open('./displayCategoryData.html','popup','width=700,height=700'); return false;">
+                <input type="button" class="btn btn-outline-dark" value="View All Category" /></a>
+        </div>
+        <div>
+            <a href="./displayProductData.html" target="popup" class="me-3"
+                onclick="window.open('./displayProductData.html','popup','width=700,height=700'); return false;">
+                <input type="button" class="btn btn-outline-dark" value="View All Products" /></a>
+        </div>
+        <div>
+            <a href="./order.html" target="popup" class="me-3"
+                onclick="window.open('./order.html','popup','width=700,height=700'); return false;">
+                <button class="btn btn-outline-dark">Shop Now <i class="bi bi-cart"></i></button>
+            </a>
+        </div>
+        <div>
+            <div class="input-group " style="height:auto; width: auto;">
+                <input type="text" class="rounded-start border border-1 border-end-0 border-dark" id="categoryName"
+                    placeholder="Enter Category Name" aria-label="Enter Category Name" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary border border-1 border-start-0 border-dark" type="button"
+                    id="button-addon2" ondblclick="cleanCategory()" onclick="viewCategoryByName()"><i
+                        class="bi bi-search"></i></button>
+                <button class="btn btn-outline-secondary " type="button" id="button-addon2"
+                    onclick="cleanCategory()"><span style="font-size: 15px;">❌</span></button>
+            </div>
+            <div>
+                <p id="MyCategory"></p>
+            </div>
+        </div>
+        <div class="">
+            <div class="input-group" style="height:auto; width: auto;">
+                <input type="text" class="rounded-start border border-1 border-dark border-end-0" id="productName"
+                    placeholder="Enter Product Name" aria-label="Enter Category Name" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary border border-1 border-start-0 border-dark" type="button"
+                    id="button-addon2" onclick="viewProductByName()"><i class="bi bi-search"></i></button>
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                    onclick="cleanProduct()"><span style="font-size: 15px;">❌</span></button>
+            </div>
             <div class="">
-                <a href="./order.html" target="popup" class="me-3"
-                    onclick="window.open('./order.html','popup','width=700,height=700'); return false;">
-                    <button>Shop Now <i class="bi bi-cart"></i></button>
-                </a><br /><br />
-                <a href="./displayCategoryData.html" target="_blank"><input type="button"
-                        value="View All Category" /></a><br /><br />
-                <a href="./displayProductData.html" target="_blank"><input type="button"
-                        value="View All Products" /></a><br><br>
+                <p id="product"></p>
             </div>
-
         </div>
 
-        <div class="p-4" style="width: 30%;">
+    </div>
 
-            <!-- <label>Enter Category Name:</label> -->
-            <input type="text" id="categoryName" placeholder="Enter Category Name" />
-            <input type="button" value="View Categorys" onclick="viewCategoryByName()" /><br><br>
-
-            <!-- <label>Enter Product Name:</label> -->
-            <input type="text" id="productName" placeholder="Enter Product Name" />
-            <input type="button" value="View Products" onclick="viewProductByName()" /><br><br>
-
-            <!-- <input type="text" id="cid" placeholder="Enter Category Id" />
-            <input type="button" value="View Products" onclick="viewProductByName()" /><br><br> -->
-
-            <p id="product"></p>
-            <p id="MyCategory"></p>
+    <div class="container pt-5 d-flex flex-wrap " style="height:420px">
+        <div class="p-3 " style="height:350px; width: 49%;">
+            <img src="./Logos/pharmacy-logo.png" style="height: 100%; width: 100%;" />
+        </div>
+        <div class=" text-center ms-5 " style="width:45%; padding: 50px 30px;">
+            <h4 style="font-style:oblique;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
+                nulla.</h4>
+            <p class=" text-start" style="font-size: large;">Lorem ipsum dolor sit amet consectetur adipisicing
+                elit.amet placeat quia assumenda, ea omnis? Minima esse numquam dolore voluptas quasi. Nobis,
+                dolorum dolore, voluptatum, eveniet quisquam nostrum modi illo quibusdam cupiditate repellendus
+                necessitatibus numquam sequi excepturi commodi a nam distinctio laudantium provident.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, consequatur!</p>
         </div>
     </div>
+
+<div class="container d-flex flex-wrap my-3 justify-content-evenly">
+    <div class="border border-1 border-dark rounded-4" style="height: 200px; width:350px;"></div>
+    <div class="border border-1 border-dark rounded-4" style="height: 200px; width:350px;"></div>
+    <div class="border border-1 border-dark rounded-4" style="height: 200px; width:350px;"></div>
+
+</div>
 
     <script src="customer.js"></script>
     <script src="admin.js"></script>

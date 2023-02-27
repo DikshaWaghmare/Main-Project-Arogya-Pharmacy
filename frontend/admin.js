@@ -28,12 +28,14 @@ function addProduct() {
   var price = document.getElementById("price").value;
   var quantity = document.getElementById("qty").value;
   var cid = document.getElementById("cid").value;
+  var cname = document.getElementById("cname").value;
   var products = {
     _id: _id,
     pname: pname,
     price: price,
     quantity: quantity,
     cid: cid,
+    categoryName:cname
   };
   console.log(products);
   fetch("http://localhost:3000/api/admin/addProduct", {
@@ -57,6 +59,7 @@ function reset() {
   document.getElementById("price").value = "";
   document.getElementById("qty").value = "";
   document.getElementById("cid").value = "";
+  document.getElementById("cname").value = "";
 }
 // =======================================================================================================================================
 //Add Products
@@ -320,11 +323,18 @@ function viewAllProducts() {
       var firstRowFifthColumnV = document.createTextNode("Category Id");
       firstRowFifthColumn.appendChild(firstRowFifthColumnV);
 
+      var firstRowSixthColumn = document.createElement("th");
+      //firstRowFifthColumn.setAttribute("class", "dataTable");
+      var firstRowSixthColumnV = document.createTextNode("Category Name");
+      firstRowSixthColumn.appendChild(firstRowSixthColumnV);
+
       firstRow.appendChild(firstRowfirstColumn);
       firstRow.appendChild(firstRowSecondColumn);
       firstRow.appendChild(firstRowThirdColumn);
       firstRow.appendChild(firstRowForthColumn);
       firstRow.appendChild(firstRowFifthColumn);
+      firstRow.appendChild(firstRowSixthColumn);
+
       tableTag.appendChild(firstRow);
 
       for (i = 0; i < result.length; i++) {
@@ -351,11 +361,16 @@ function viewAllProducts() {
         var secondRowFifthColV = document.createTextNode(result[i].cid);
         secondRowFifthCol.appendChild(secondRowFifthColV);
 
+        var secondRowSixthCol = document.createElement("td");
+        var secondRowSixthColV = document.createTextNode(result[i].categoryName);
+        secondRowSixthCol.appendChild(secondRowSixthColV);
+
         secondRow.appendChild(secondRowFirstCol);
         secondRow.appendChild(secondRowSecondCol);
         secondRow.appendChild(secondRowThirdCol);
         secondRow.appendChild(secondRowForthCol);
         secondRow.appendChild(secondRowFifthCol);
+        secondRow.appendChild(secondRowSixthCol);
 
         tableTag.appendChild(secondRow);
       }
@@ -377,7 +392,8 @@ function findAllData() {
   })
     .then((res) => res.json())
     .then((result) => {
-      console.log(result.msg);
+      console.log(result.length);
+      // console.log(result.msg);
       // console.log(token)
       if (result.msg == null) {
         //document.getElementById("customer").innerHTML =(result);
@@ -516,15 +532,12 @@ function findAllOrders() {
       var firstRforthC = document.createElement("th");
       var firstRforthCV = document.createTextNode("Product Quantity");
       firstRforthC.appendChild(firstRforthCV);
-      var firstRfifthC = document.createElement("th");
-      var firstRfifthCV = document.createTextNode("Amount");
-      firstRfifthC.appendChild(firstRfifthCV);
+      
 
       FirstR.appendChild(firstRfirstC);
       FirstR.appendChild(firstRsecondC);
       FirstR.appendChild(firstRthirdC);
       FirstR.appendChild(firstRforthC);
-      FirstR.appendChild(firstRfifthC);
 
       tableTag.appendChild(FirstR);
       tableTag.setAttribute("border", "1");
@@ -544,15 +557,11 @@ function findAllOrders() {
         var secondRforthC = document.createElement("td");
         var secondRforthCV = document.createTextNode(result[i].productqty);
         secondRforthC.appendChild(secondRforthCV);
-        var secondRfifthC = document.createElement("td");
-        var secondRfifthCV = document.createTextNode(result[i].amount);
-        secondRfifthC.appendChild(secondRfifthCV);
 
         secondR.appendChild(secondRfirstC);
         secondR.appendChild(secondRsecondC);
         secondR.appendChild(secondRthirdC);
         secondR.appendChild(secondRforthC);
-        secondR.appendChild(secondRfifthC);
 
         tableTag.appendChild(secondR);
         tableTag.setAttribute("border", "1");

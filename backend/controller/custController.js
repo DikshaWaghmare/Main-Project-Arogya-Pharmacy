@@ -95,7 +95,6 @@ let signIn = async (req, res) => {
 // =======================================================================================================================================
 let findCustomerByName = async (req, res) => {
   let custName = req.params.name;
-
     try {
       let result = await custModel.findOne({ name: custName });
       if (result == null) {
@@ -125,6 +124,24 @@ let viewCategoryByName = async (req, res) => {
 };
 
 // =======================================================================================================================================
+let findCustomerByEmail = async (req, res) => {
+  let custEmail = req.params.email;
+
+    try {
+      let result = await custModel.findOne({ email: custEmail },{password:0});
+      if (result == null) {
+        res.json({ msg: "Record not Found!" });
+      } else {
+        res.json(result);
+      }
+    } catch (err) {
+      res.json({ msg: "Error generated " + err });
+    }
+  
+};
+
+
+// =======================================================================================================================================
 let viewProductByName = async (req, res) => {
   let pname = req.params.pname;
   try {
@@ -140,10 +157,10 @@ let viewProductByName = async (req, res) => {
 };
 
 // =======================================================================================================================================
-let viewProductByCategoryId = async (req, res) => {
-  let cid = req.params.cid;
+let viewProductByCategoryName = async (req, res) => {
+  let cname = req.params.categoryName;
   try {
-    let result = await productModel.findOne({ cid: cid });
+    let result = await productModel.findOne({ categoryName: cname });
     if (result == null) {
       res.json({ msg: "Record not found!" });
     } else {
@@ -161,7 +178,8 @@ module.exports = {
   signUp,
   signIn,
   findCustomerByName,
+  findCustomerByEmail,
   viewCategoryByName,
   viewProductByName,
-  viewProductByCategoryId
+  viewProductByCategoryName
 };

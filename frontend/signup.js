@@ -33,6 +33,7 @@ function storeCustomerInfo() {
     address: address,
     typeOfUser: typeOfUser,
   };
+  
   console.log(customers);
   fetch("http://localhost:3000/api/customer/signUp", {
     method: "post",
