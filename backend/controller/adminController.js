@@ -60,7 +60,7 @@ let viewAllProduct = async (req, res) => {
 // =======================================================================================================================================
 let findAllCustomers = async (req, res) => {
   try {
-    let result = await customerModel.find({});
+    let result = await customerModel.find({},{password:0});
     // if()
     res.send(result);
   } catch (error) {

@@ -70,11 +70,11 @@ function viewCustomerByEmailByCust() {
           result.address +
           "<br>TypeOfUser: " +
           result.typeOfUser+"<br>";
-        var btn=document.createElement("button");
-        var btnV=document.createTextNode("❌");
-        btn.appendChild(btnV);
-        // btn.setAttribute(onclick="cleanCustData()");
-        document.getElementById("cDetails").appendChild(btn);
+        // var btn=document.createElement("button");
+        // var btnV=document.createTextNode("❌");
+        // btn.appendChild(btnV);
+        // // btn.setAttribute(onclick="cleanCustData()");
+        // document.getElementById("cDetails").appendChild(btn);
       }
     })
     .catch((error) => console.log(error));
@@ -128,6 +128,9 @@ function viewCustomerByNameByAdmin() {
     })
     .catch((error) => console.log(error));
 }
+// function cleanCustData(){
+//   document.getElementById("cDetails").innerHTML="";
+// }
 // function reset(){
 // alert("welcome")
 // }
@@ -361,17 +364,17 @@ function viewOrderByCust() {
       if (result.msg != null) {
         document.getElementById("MyOrder").innerHTML = result.msg;
       } else {
-        document.getElementById("MyOrder").innerHTML =result
-          // "Category Id: " +
-          // result.categoryId +
-          // "<br>Product Id: " +
-          // result.productId +
-          // "<br>Customer Id: " +
-          // result.customerId +
-          // "<br>Product Quantity: " +
-          // result.productqty +
-          // "<br>Date Of Order: " +
-          // result.dateOfOrder;
+        document.getElementById("MyOrder").innerHTML =
+          "Category Id: " +
+          result.categoryId +
+          "<br>Product Id: " +
+          result.productId +
+          "<br>Customer Id: " +
+          result.customerId +
+          "<br>Product Quantity: " +
+          result.productqty +
+          "<br>Date Of Order: " +
+          result.dateOfOrder;
       }
     })
     .catch((error) => console.log(error));
@@ -390,19 +393,22 @@ function viewOrderByAdmin() {
         document.getElementById("MyOrder").innerHTML = result.msg;
       } else {
         document.getElementById("MyOrder").innerHTML =
-        result.map(obj=>"Category Id: "+obj.categoryId+", Product Id: "+obj.productId+", Customer Id: "+obj.customerId+", Product Quantity: "+obj.productqty).join("<br/>");
-          // "Category Id: " +
-          // result.categoryId +
-          // "<br>Product Id: " +
-          // result.productId +
-          // "<br>Customer Id: " +
-          // result.customerId +
-          // "<br>Product Quantity: " +
-          // result.productqty +
-          // "<br>Date Of Order: " +
-          // result.dateOfOrder;
+        // result.map(obj=>"Category Id: "+obj.categoryId+", Product Id: "+obj.productId+", Customer Id: "+obj.customerId+", Product Quantity: "+obj.productqty).join("<br/>");
+          "Category Id: " +
+          result.categoryId +
+          "<br>Product Id: " +
+          result.productId +
+          "<br>Customer Id: " +
+          result.customerId +
+          "<br>Product Quantity: " +
+          result.productqty +
+          "<br>Date Of Order: " +
+          result.dateOfOrder;
       }
     })
     .catch((error) => console.log(error));
+}
+function cleanOrder(){
+  document.getElementById("MyOrder").innerHTML="";
 }
 // =======================================================================================================================================

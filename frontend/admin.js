@@ -276,10 +276,13 @@ function viewAllCategory() {
         tableTag.appendChild(secondRow);
       }
       // document.getElementsByTagName("body")[0].appendChild(tableTag);
-      document.getElementById("DataView").appendChild(tableTag);
+      document.getElementById("CategoryDataView").appendChild(tableTag);
     })
     .catch((error) => console.log(error));
 }
+function cleanCategoryTable(){
+  document.getElementById("CategoryDataView").innerHTML="";
+} 
 // =======================================================================================================================================
 
 //find all products
@@ -293,7 +296,7 @@ function viewAllProducts() {
       // output.innerHTML = result.map(obj=>"Id: "+obj._id+", Name: "+obj.pname+", Price: "+obj.price+", Quantity: "+obj.quantity+", category Id: "+obj.cid).join("<br/>");
       var tableTag = document.createElement("table");
       tableTag.setAttribute("class", "dataTable");
-      tableTag.setAttribute("width", "700px");
+      tableTag.setAttribute("width", "900px");
       
       var firstRow = document.createElement("tr");
       firstRow.setAttribute("class", "dataTable");
@@ -375,10 +378,14 @@ function viewAllProducts() {
         tableTag.appendChild(secondRow);
       }
       // document.getElementsByTagName("body")[0].appendChild(tableTag);
-      document.getElementById("DataView").appendChild(tableTag);
+      document.getElementById("ProductDataView").appendChild(tableTag);
     })
     .catch((error) => console.log(error));
 }
+
+function cleanProductTable(){
+  document.getElementById("ProductDataView").innerHTML="";
+} 
 // =======================================================================================================================================
 
 //find all customers
@@ -392,7 +399,8 @@ function findAllData() {
   })
     .then((res) => res.json())
     .then((result) => {
-      console.log(result.length);
+
+      console.log(result);
       // console.log(result.msg);
       // console.log(token)
       if (result.msg == null) {
@@ -414,9 +422,9 @@ function findAllData() {
         var firstRthirdC = document.createElement("th");
         var firstRthirdCV = document.createTextNode("Email");
         firstRthirdC.appendChild(firstRthirdCV);
-        var firstRforthC = document.createElement("th");
-        var firstRforthCV = document.createTextNode("Password");
-        firstRforthC.appendChild(firstRforthCV);
+        // var firstRforthC = document.createElement("th");
+        // var firstRforthCV = document.createTextNode("Password");
+        // firstRforthC.appendChild(firstRforthCV);
         var firstRfifthC = document.createElement("th");
         var firstRfifthCV = document.createTextNode("Gender");
         firstRfifthC.appendChild(firstRfifthCV);
@@ -436,7 +444,7 @@ function findAllData() {
         FirstR.appendChild(firstRfirstC);
         FirstR.appendChild(firstRsecondC);
         FirstR.appendChild(firstRthirdC);
-        FirstR.appendChild(firstRforthC);
+        // FirstR.appendChild(firstRforthC);
         FirstR.appendChild(firstRfifthC);
         FirstR.appendChild(firstRsixC);
         FirstR.appendChild(firstRsevenC);
@@ -458,9 +466,9 @@ function findAllData() {
           var secondRthirdC = document.createElement("td");
           var secondRthirdCV = document.createTextNode(result[i].email);
           secondRthirdC.appendChild(secondRthirdCV);
-          var secondRforthC = document.createElement("td");
-          var secondRforthCV = document.createTextNode(result[i].password);
-          secondRforthC.appendChild(secondRforthCV);
+          // var secondRforthC = document.createElement("td");
+          // var secondRforthCV = document.createTextNode(result[i].password);
+          // secondRforthC.appendChild(secondRforthCV);
           var secondRfifthC = document.createElement("td");
           var secondRfifthCV = document.createTextNode(result[i].gender);
           secondRfifthC.appendChild(secondRfifthCV);
@@ -480,7 +488,7 @@ function findAllData() {
           secondR.appendChild(secondRfirstC);
           secondR.appendChild(secondRsecondC);
           secondR.appendChild(secondRthirdC);
-          secondR.appendChild(secondRforthC);
+          // secondR.appendChild(secondRforthC);
           secondR.appendChild(secondRfifthC);
           secondR.appendChild(secondRsixC);
           secondR.appendChild(secondRsevenC);
@@ -502,6 +510,10 @@ function findAllData() {
     })
     .catch((error) => console.log(error));
 }
+
+function cleanTableData(){
+  document.getElementById("DataView").innerHTML=""
+}
 // =======================================================================================================================================
 
 //find all orders
@@ -515,7 +527,7 @@ function findAllOrders() {
       // output.innerHTML = result.map(obj=>"Category Id: "+obj.categoryId+", Product Id: "+obj.productId+", Customer Id: "+obj.customerId+", Product Quantity: "+obj.productqty+", Amount: "+obj.amount).join("<br/>");
       var tableTag = document.createElement("table");
       tableTag.setAttribute("class", "dataTable");
-      tableTag.setAttribute("width", "50%");
+      tableTag.setAttribute("width", "70%");
 
       var FirstR = document.createElement("tr");
       FirstR.setAttribute("class", "dataTable");
@@ -566,8 +578,11 @@ function findAllOrders() {
         tableTag.appendChild(secondR);
         tableTag.setAttribute("border", "1");
       }
-      document.getElementById("DataView").appendChild(tableTag);
+      document.getElementById("OrderDataView").appendChild(tableTag);
     })
     .catch((error) => console.log(error));
+}
+function cleanOrderTable(){
+  document.getElementById("OrderDataView").innerHTML="";
 }
 // =======================================================================================================================================

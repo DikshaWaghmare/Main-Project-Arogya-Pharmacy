@@ -32,25 +32,25 @@
         <div>
             <a href="./displayCategoryData.html" target="popup" class="me-3"
                 onclick="window.open('./displayCategoryData.html','popup','width=700,height=700'); return false;">
-                <input type="button" class="btn btn-outline-dark" value="View All Category" /></a>
+                <input type="button" class="btn btn-outline-dark" onclick="cleanCustData()" value="View All Category" /></a>
         </div>
         <div>
             <a href="./displayProductData.html" target="popup" class="me-3"
                 onclick="window.open('./displayProductData.html','popup','width=700,height=700'); return false;">
-                <input type="button" class="btn btn-outline-dark" value="View All Products" /></a>
+                <input type="button" class="btn btn-outline-dark" onclick="cleanCustData()" value="View All Products" /></a>
         </div>
         <div>
             <a href="./order.html" target="popup" class="me-3"
                 onclick="window.open('./order.html','popup','width=700,height=700'); return false;">
-                <button class="btn btn-outline-dark">Shop Now <i class="bi bi-cart"></i></button>
+                <button class="btn btn-outline-dark" onclick="cleanCustData()">Shop Now <i class="bi bi-cart"></i></button>
             </a>
         </div>
         <div>
             <div class="input-group " style="height:auto; width: auto;">
                 <input type="text" class="rounded-start border border-1 border-end-0 border-dark" id="categoryName"
-                    placeholder="Enter Category Name" aria-label="Enter Category Name" aria-describedby="button-addon2">
+                    placeholder="Enter Category Name" onkeydown="cleanCustData()" aria-label="Enter Category Name" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary border border-1 border-start-0 border-dark" type="button"
-                    id="button-addon2" ondblclick="cleanCategory()" onclick="viewCategoryByName()"><i
+                    id="button-addon2" onclick="viewCategoryByName()"><i
                         class="bi bi-search"></i></button>
                 <button class="btn btn-outline-secondary " type="button" id="button-addon2"
                     onclick="cleanCategory()"><span style="font-size: 15px;">❌</span></button>
@@ -62,7 +62,7 @@
         <div class="">
             <div class="input-group" style="height:auto; width: auto;">
                 <input type="text" class="rounded-start border border-1 border-dark border-end-0" id="productName"
-                    placeholder="Enter Product Name" aria-label="Enter Category Name" aria-describedby="button-addon2">
+                    placeholder="Enter Product Name" onkeydown="cleanCustData()" aria-label="Enter Category Name" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary border border-1 border-start-0 border-dark" type="button"
                     id="button-addon2" onclick="viewProductByName()"><i class="bi bi-search"></i></button>
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2"
