@@ -140,7 +140,6 @@ let findCustomerByEmail = async (req, res) => {
   
 };
 
-
 // =======================================================================================================================================
 let viewProductByName = async (req, res) => {
   let pname = req.params.pname;

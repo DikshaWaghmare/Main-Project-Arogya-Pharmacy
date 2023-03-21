@@ -23,17 +23,17 @@
      <div>
         <a href="index.html"><input type="button" value="Back" class=" mt-3 fs-5 px-4" style="margin-left: 50px; border-radius: 8px; background-color: rgb(227, 243, 243);" /></a>
     </div>
-            <form class="fs-5 px-5 py-5" style="height: auto;margin-left: 116px;margin-top: 90px;; width: 450px; box-shadow: 0px 0px 2px black; border-radius: 10px; background-color: rgb(181, 222, 224);">
+            <form class="fs-5 px-5 py-5" onkeypress="cleanMsg()" style="height: auto;margin-left: 116px;margin-top: 90px;; width: 450px; box-shadow: 0px 0px 2px black; border-radius: 10px; background-color: rgb(181, 222, 224);">
                 
                 <label>Type Of User: </label>
                 <input type="radio" name="typeOfUser" value="admin"class="ms-3"/>Admin
                 <input type="radio" name="typeOfUser" value="customer"class="ms-3"/>Customer<br/><br/>
                 <label style="font-size: 18px;">Enter Email</label><br>
-                <input type="email" id="email" class="w-100 border border-0 rounded" onkeypress="cleanMsg()"/><br>
+                <input type="email" id="email" class="w-100 border border-0 rounded" /><br>
                 <label style="font-size: 18px;" class="mt-3">Password</label><br>
                 <input type="password" id="password" class="w-100 border border-0 rounded"/><br><br>
                 
-                <input type="button" value="Login" onclick="signinUser()" class="mt-2 w-100  btn btn-outline-info" style="color:black; border:1px solid black"/>
+                <input value="Login" onclick="signinUser()" class="mt-2 w-100  btn btn-info" style="color:black; border:1px solid black;"/>
                 <!-- <input type="button" value="cancel" onclick="reset()" class="ms-4 mt-3 fs-5 px-4" style="border-radius: 8px; background-color: rgb(122, 239, 241); border:1px solid black"/><br/><br/> -->
                 
                 <p style="font-size: medium;" class=" mt-2">Account not found?<br>Create New Account <a href="signUp.html">Sign up</a> </p>

@@ -61,8 +61,11 @@ function reset() {
   document.getElementById("cid").value = "";
   document.getElementById("cname").value = "";
 }
+function cleanpdata(){
+  document.getElementById("pmsg").innerHTML ="";
+}
 // =======================================================================================================================================
-//Add Products
+//Add salesman
 function addSalesman() {
   var _id = document.getElementById("sid").value;
   var name = document.getElementById("sname").value;
@@ -79,7 +82,7 @@ function addSalesman() {
   var age = document.getElementById("age").value;
   var mobileNo = document.getElementById("mobileno").value;
   var address = document.getElementById("address").value;
-  var products = {
+  var salesman = {
     _id: _id,
     name: name,
     email: email,
@@ -88,18 +91,19 @@ function addSalesman() {
     mobileNo: mobileNo,
     address: address,
   };
-  console.log(products);
+  console.log(salesman);
   fetch("http://localhost:3000/api/admin/addSalesman", {
     method: "post",
-    body: JSON.stringify(products),
+    body: JSON.stringify(salesman),
     headers: {
       "Content-type": "application/json",
     },
   })
     .then((res) => res.json())
     .then((result) => {
-      document.getElementById("msg").innerHTML = result.msg;
+      document.getElementById("msg").innerHTML =result.msg;
       console.log(result);
+      // alert(result.msg)
     })
     .catch((error) => console.log(error));
   reset();
@@ -112,6 +116,9 @@ function reset() {
   document.getElementById("age").value;
   document.getElementById("mobileno").value;
   document.getElementById("address").value;
+}
+function cleanSdata(){
+  document.getElementById("msg").innerHTML = "";
 }
 // =======================================================================================================================================
 //find all Salesman
@@ -212,17 +219,20 @@ function viewAllSalesman() {
         tableTag.appendChild(secondR);
         tableTag.setAttribute("border", "1");
       }
-      document.getElementById("DataView").appendChild(tableTag);
+      document.getElementById("SalesmanDataView").appendChild(tableTag);
     } else if (
       result.msg == "Error generated:JsonWebTokenError: jwt malformed"
     ) {
-      document.getElementById("DataView").innerHTML =
+      document.getElementById("SalesmanDataView").innerHTML =
         "invalid token found! Login again!";
     } else {
-      document.getElementById("DataView").innerHTML = result.msg;
+      document.getElementById("SalesmanDataView").innerHTML = result.msg;
     }
   })
   .catch((error) => console.log(error));
+}
+function cleanSalesmanTable(){
+  document.getElementById("SalesmanDataView").innerHTML = "";
 }
 // =======================================================================================================================================
 
@@ -382,7 +392,6 @@ function viewAllProducts() {
     })
     .catch((error) => console.log(error));
 }
-
 function cleanProductTable(){
   document.getElementById("ProductDataView").innerHTML="";
 } 
@@ -509,13 +518,11 @@ function findAllData() {
       }
     })
     .catch((error) => console.log(error));
-}
-
+  }
 function cleanTableData(){
   document.getElementById("DataView").innerHTML=""
 }
 // =======================================================================================================================================
-
 //find all orders
 function findAllOrders() {
   fetch("http://localhost:3000/api/order/viewAllOrder", {
@@ -523,6 +530,7 @@ function findAllOrders() {
   })
     .then((res) => res.json())
     .then((result) => {
+      console.log(result)
       // output=document.getElementById("orders");
       // output.innerHTML = result.map(obj=>"Category Id: "+obj.categoryId+", Product Id: "+obj.productId+", Customer Id: "+obj.customerId+", Product Quantity: "+obj.productqty+", Amount: "+obj.amount).join("<br/>");
       var tableTag = document.createElement("table");
@@ -539,17 +547,21 @@ function findAllOrders() {
       var firstRsecondCV = document.createTextNode("Product Id");
       firstRsecondC.appendChild(firstRsecondCV);
       var firstRthirdC = document.createElement("th");
-      var firstRthirdCV = document.createTextNode("Customer Id");
+      var firstRthirdCV = document.createTextNode("Customer Email");
       firstRthirdC.appendChild(firstRthirdCV);
       var firstRforthC = document.createElement("th");
       var firstRforthCV = document.createTextNode("Product Quantity");
       firstRforthC.appendChild(firstRforthCV);
+      var firstRfifthC = document.createElement("th");
+      var firstRfifthCV = document.createTextNode("Order date & time");
+      firstRfifthC.appendChild(firstRfifthCV);
       
 
       FirstR.appendChild(firstRfirstC);
       FirstR.appendChild(firstRsecondC);
       FirstR.appendChild(firstRthirdC);
       FirstR.appendChild(firstRforthC);
+      FirstR.appendChild(firstRfifthC);
 
       tableTag.appendChild(FirstR);
       tableTag.setAttribute("border", "1");
@@ -564,16 +576,21 @@ function findAllOrders() {
         var secondRsecondCV = document.createTextNode(result[i].productId);
         secondRsecondC.appendChild(secondRsecondCV);
         var secondRthirdC = document.createElement("td");
-        var secondRthirdCV = document.createTextNode(result[i].customerId);
+        var secondRthirdCV = document.createTextNode(result[i].customerEmail);
         secondRthirdC.appendChild(secondRthirdCV);
         var secondRforthC = document.createElement("td");
         var secondRforthCV = document.createTextNode(result[i].productqty);
         secondRforthC.appendChild(secondRforthCV);
+        var secondRfifthC = document.createElement("td");
+        var secondRfifhCV = document.createTextNode(result[i].dateOfOrder);
+        secondRfifthC.appendChild(secondRfifhCV);
+
 
         secondR.appendChild(secondRfirstC);
         secondR.appendChild(secondRsecondC);
         secondR.appendChild(secondRthirdC);
         secondR.appendChild(secondRforthC);
+        secondR.appendChild(secondRfifthC);
 
         tableTag.appendChild(secondR);
         tableTag.setAttribute("border", "1");
@@ -586,3 +603,73 @@ function cleanOrderTable(){
   document.getElementById("OrderDataView").innerHTML="";
 }
 // =======================================================================================================================================
+// Salesman
+function viewSalesmanByAdmin() {
+  var salesmanName=document.getElementById("sname").value;
+  console.log(salesmanName);
+  fetch("http://localhost:3000/api/admin/viewSalesmanByName/"+salesmanName, {
+    method: "get",
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      console.log(result);
+      if (result.msg != null) {
+        document.getElementById("SalesmanData").innerHTML = result.msg;
+      } else {
+        document.getElementById("SalesmanData").innerHTML =
+        "Id: " +
+          result._id+
+          "<br>Name:" +
+          result.name +
+          "<br>Email: " +
+          result.email +
+          "<br>Password: " +
+          result.password +
+          "<br>Gender: " +
+          result.gender +
+          "<br>Age: " +
+          result.age +
+          "<br>Mobile No.: " +
+          result.mobileNo +
+          "<br>Address: " +
+          result.address 
+      }
+})
+  
+    .catch((error) => console.log(error));
+}
+function cleanSalesmanData(){
+  document.getElementById("SalesmanData").innerHTML="";
+}
+// ===========================================================================================================================================
+function viewOrderByAdmin() {
+  var custEmail=document.getElementById("custEmail").value;
+   console.log(custEmail);
+  fetch("http://localhost:3000/api/order/viewOrderByCustEmail/"+custEmail, {
+    method: "get",
+  })
+    .then((res) => res.json())
+    .then((result) => {
+     console.log(result);
+      if (result.msg != null) {
+        document.getElementById("CustOrder").innerHTML = result.msg;
+      } else {
+        document.getElementById("CustOrder").innerHTML =
+        "Customer Email: "+
+        result.customerEmail+
+          "<br>Category Id: " +
+        result.categoryId +
+        "<br>Product Id: " +
+        result.productId +
+        "<br>Product Quantity: " +
+        result.productqty +
+        "<br>Date Of Order: " +
+        result.dateOfOrder;
+}
+})
+  
+    .catch((error) => console.log(error));
+}
+function cleanOrder(){
+  document.getElementById("CustOrder").innerHTML="";
+}

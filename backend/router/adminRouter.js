@@ -24,4 +24,6 @@ router.post("/addSalesman",adminController.addSalesman);
 //http://localhost:3000/api/admin/viewAllSalesman
 router.get("/viewAllSalesman",adminController.viewAllSalesman);
 
+//http://localhost:3000/api/admin/viewSalesmanByName/name
+router.get("/viewSalesmanByName/:name",adminController.viewSalesmanByName);
 module.exports=router;

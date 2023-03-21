@@ -107,7 +107,19 @@ let viewAllSalesman=async (req, res) => {
   }
 };
 // =======================================================================================================================================
-
+let viewSalesmanByName=async (req,res)=>{
+  let salesmanName = req.params.name;
+  try {
+    let result = await salesmanModel.findOne({ name: salesmanName });
+    if (result == null) {
+      res.json({ msg: "Record not found!" });
+    } else {
+      res.json(result);
+    }
+  } catch (err) {
+    res.json({ msg: "Error generated " + err });
+  }
+}
 module.exports = {
   addCategory,
   addProduct,
@@ -115,5 +127,6 @@ module.exports = {
   viewAllProduct,
   findAllCustomers,
   addSalesman,
-  viewAllSalesman
+  viewAllSalesman,
+  viewSalesmanByName
 };

@@ -26,22 +26,25 @@ let viewAllOrder = async (req, res) =>{
   }
 // =======================================================================================================================================
 
-let  viewOrderByCustId=async(req,res)=>{
-    let custId=req.params.customerId;
+let  viewOrderByCustEmail=async(req,res)=>{
+    let custEmail=req.params.email;
     try{
-        let result=await orderModel.findOne({customerId:custId});
+        let result=await orderModel.findOne({email:custEmail});
         if(result==null){
             res.json({"msg":"Record not found!"})
+            // console.log("1 "+result);
         }else {
             res.json(result);
+            // console.log("2 "+result);
         }
         }
         catch(err){
             res.json({"msg":"Error generated "+err});
         }
 }
+
 // =======================================================================================================================================
 
 module.exports = {
-    addOrder,viewAllOrder,viewOrderByCustId
+    addOrder,viewAllOrder,viewOrderByCustEmail
   };

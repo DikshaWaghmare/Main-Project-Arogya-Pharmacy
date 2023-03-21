@@ -8,6 +8,9 @@ router.post("/addOrder",orderController.addOrder);
 //http://localhost:3000/api/order/viewAllOrder
 router.get("/viewAllOrder",orderController.viewAllOrder);
 
-//http://localhost:3000/api/order/viewOrderByCustId
-router.get("/viewOrderByCustId/:customerId",orderController.viewOrderByCustId);
+//http://localhost:3000/api/order/viewOrderByCustEmail
+router.get("/viewOrderByCustEmail/:email",orderController.viewOrderByCustEmail);
+
+
+// router.get("/viewOrderByCustId/:customerId",orderController.viewOrderByCustId);
 module.exports=router;

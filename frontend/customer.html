@@ -18,11 +18,46 @@
     <div class="p-3 text-end mt-3 pe-5">
         <a class="btn btn-primary" href="index.html">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
     </div>
+<!-- ---------------------------------------------------- -->
+<div class="container d-flex justify-content-evenly row mx-5">
+
+    <div class="col-6" >
+        <div class="input-group" style="height:auto;">
+            <input type="text" class="rounded-start border border-1 border-end-0 border-dark mx-auto" id="categoryName"
+                placeholder="Enter Category Name" onkeydown="cleanCustData()" onkeyup="viewCategoryByName()"
+                aria-label="Enter Category Name" aria-describedby="button-addon2" style="width:88%">
+            <button class="btn btn-outline-secondary border border-1 border-start-0 border-dark" type="button"
+                id="button-addon2" onclick="viewCategoryByName()"><i class="bi bi-search"></i></button>
+            <button class="btn btn-close border border-1 border-dark border-start-0 p-2 pb-3" type="button"
+                id="button-addon2" onclick="cleanCategory()"></button>
+        </div>
+        <div class="">
+            <p class="p-4" id="MyCategory"></p>
+        </div>
+    </div>
+    <!--  -->
+    <div class="col-6">
+        <div class="input-group" style="height:auto; width: auto;">
+            <input type="text" class="rounded-start border border-1 border-dark border-end-0 mx-auto" id="productName"
+                placeholder="Enter Product Name" onkeydown="cleanCustData()" onkeyup="viewProductByName()"
+                aria-label="Enter Category Name" aria-describedby="button-addon2" style="width:88%">
+            <button class="btn btn-outline-secondary border border-1 border-start-0 border-dark" type="button"
+                id="button-addon2" onclick="viewProductByName()"><i class="bi bi-search"></i></button>
+            <button class="btn btn-close border border-1 border-dark border-start-0 p-2 pb-3" type="button"
+                id="button-addon2" onclick="cleanProduct()"></button>
+        </div>
+        <div>
+            <p class="p-4" id="product"></p>
+        </div>
+    </div>
+    <!--  -->
+</div>
+<!-- ------------------------------------------------------ -->
+    
     <div class="container d-flex flex-wrap justify-content-evenly">
         <div>
             <div>
-                <button class="btn btn-outline-dark " type="button"
-                    onclick="viewCustomerByEmailByCust()">My
+                <button class="btn btn-outline-dark " type="button" onclick="viewCustomerByEmailByCust()">My
                     Details!</button>
             </div>
             <div>
@@ -32,46 +67,33 @@
         <div>
             <a href="./displayCategoryData.html" target="popup" class="me-3"
                 onclick="window.open('./displayCategoryData.html','popup','width=700,height=700'); return false;">
-                <input type="button" class="btn btn-outline-dark" onclick="cleanCustData()" value="View All Category" /></a>
+                <input type="button" class="btn btn-outline-dark" onclick="cleanCustData()"
+                    value="View All Category" /></a>
         </div>
         <div>
-            <a href="./displayProductData.html" target="popup" class="me-3"
-                onclick="window.open('./displayProductData.html','popup','width=700,height=700'); return false;">
-                <input type="button" class="btn btn-outline-dark" onclick="cleanCustData()" value="View All Products" /></a>
+            <a href="./displayProductData.html" class="me-3">
+                <input type="button" class="btn btn-outline-dark" onclick="cleanCustData()"  
+                    value="View All Products" /></a>
         </div>
         <div>
-            <a href="./order.html" target="popup" class="me-3"
-                onclick="window.open('./order.html','popup','width=700,height=700'); return false;">
-                <button class="btn btn-outline-dark" onclick="cleanCustData()">Shop Now <i class="bi bi-cart"></i></button>
+            <a href="./order.html">
+                <button class="btn btn-outline-dark" onclick="cleanCustData()">Shop Now <i
+                        class="bi bi-cart"></i></button>
             </a>
         </div>
         <div>
-            <div class="input-group " style="height:auto; width: auto;">
-                <input type="text" class="rounded-start border border-1 border-end-0 border-dark" id="categoryName"
-                    placeholder="Enter Category Name" onkeydown="cleanCustData()" aria-label="Enter Category Name" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary border border-1 border-start-0 border-dark" type="button"
-                    id="button-addon2" onclick="viewCategoryByName()"><i
-                        class="bi bi-search"></i></button>
-                <button class="btn btn-outline-secondary " type="button" id="button-addon2"
-                    onclick="cleanCategory()"><span style="font-size: 15px;">❌</span></button>
+            <div>
+                <a href="./customerOrder.html" target="popup" class="me-3"
+                onclick="window.open('./customerOrder.html','popup','width=700,height=700'); return false;">
+                <button class="btn btn-outline-dark" onclick="viewOrderByCust()">My Orders!</button>
+            </a>
             </div>
             <div>
-                <p id="MyCategory"></p>
+                <p id="MyOrder"></p>
             </div>
         </div>
-        <div class="">
-            <div class="input-group" style="height:auto; width: auto;">
-                <input type="text" class="rounded-start border border-1 border-dark border-end-0" id="productName"
-                    placeholder="Enter Product Name" onkeydown="cleanCustData()" aria-label="Enter Category Name" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary border border-1 border-start-0 border-dark" type="button"
-                    id="button-addon2" onclick="viewProductByName()"><i class="bi bi-search"></i></button>
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2"
-                    onclick="cleanProduct()"><span style="font-size: 15px;">❌</span></button>
-            </div>
-            <div class="">
-                <p id="product"></p>
-            </div>
-        </div>
+        
+        
 
     </div>
 
@@ -90,12 +112,150 @@
         </div>
     </div>
 
-<div class="container d-flex flex-wrap my-3 justify-content-evenly">
-    <div class="border border-1 border-dark rounded-4" style="height: 200px; width:350px;"></div>
-    <div class="border border-1 border-dark rounded-4" style="height: 200px; width:350px;"></div>
-    <div class="border border-1 border-dark rounded-4" style="height: 200px; width:350px;"></div>
+    <div class="container mt-4">
+        <div class="p-3">
+            <h3>Booked Lab Tests <i class="bi bi-clipboard2-pulse-fill"></i></h3>
+        </div>
+        <div class="d-flex flex-wrap my-3 justify-content-evenly">
+            <div class=" border border-1 border-dark rounded-4 "
+                style="height: 250px; width:400px; background-image: linear-gradient(to bottom right, rgb(249, 249, 141), rgb(169, 245, 236));">
+                <div class=" ps-3">
+                    <span class="btn ms-2 rounded-4" style="background-color: rgb(216, 143, 143);">73% OFF</span>
+                    <img src="./Logos/special-offer.png" class="" height="70px" style="margin-left: 170px;" />
+                </div>
+                <div class="d-flex justify-content-evenly">
+                    <div class="ps-3">
+                        <a href="#" style="text-decoration:none;">
+                            <h5 class=" text-center text-dark fw-bold">Full Body Health Checkup</h5>
+                        </a>
+                        <p>Lorem ipsum dolor sit Lorem ipsum dolor sit amet dolor sit amet amet dolor sit amet dolor.
+                        </p>
+                        <h6 class="ms-3 "><i class="bi bi-currency-rupee fw-lighter"></i><span
+                                class="text-decoration-line-through fw-lighter ">999</span><span
+                                class="ms-3 fw-bold fs-5"><i class="bi bi-currency-rupee"></i>750</span></h6>
+                    </div>
+                    <div class="pe-2">
+                        <img src="./Logos/healthcheckup.webp" height="160px" width="150px" class="rounded-4" alt="...">
+                    </div>
+                </div>
+            </div>
 
-</div>
+            <div class=" border border-1 border-dark rounded-4 "
+                style="height: 250px; width:400px; background-image: linear-gradient(to bottom right, rgb(249, 249, 141), rgb(169, 245, 236));">
+                <div class=" ps-3">
+                    <span class="btn ms-2 rounded-4" style="background-color: rgb(216, 143, 143);">73% OFF</span>
+                    <img src="./Logos/special-offer.png" class="" height="70px" style="margin-left: 170px;" />
+                </div>
+                <div class="d-flex justify-content-evenly">
+                    <div class="ps-3">
+                        <a href="#" style="text-decoration:none;">
+                            <h5 class=" text-center text-dark fw-bold">Kids Health Checkup</h5>
+                        </a>
+                        <p>Lorem ipsum dolor sit Lorem ipsum dolor sit amet dolor sit amet amet dolor sit amet dolor.
+                        </p>
+                        <h6 class="ms-3 "><i class="bi bi-currency-rupee fw-lighter"></i><span
+                                class="text-decoration-line-through fw-lighter ">999</span><span
+                                class="ms-3 fw-bold fs-5"><i class="bi bi-currency-rupee"></i>750</span></h6>
+                    </div>
+                    <div class="pe-2 pt-3">
+                        <img src="./Logos/kidshealthcheckup.png" height="140px" width="130px" class="rounded-4"
+                            alt="...">
+                    </div>
+                </div>
+            </div>
+
+            <div class=" border border-1 border-dark rounded-4 "
+                style="height: 250px; width:400px; background-image: linear-gradient(to bottom right, rgb(249, 249, 141), rgb(169, 245, 236));">
+                <div class=" ps-3">
+                    <span class="btn ms-2 rounded-4" style="background-color: rgb(216, 143, 143);">73% OFF</span>
+                    <img src="./Logos/special-offer.png" class="" height="70px" style="margin-left: 170px;" />
+                </div>
+                <div class="d-flex justify-content-evenly">
+                    <div class="ps-3">
+                        <a href="#" style="text-decoration:none;">
+                            <h5 class="fs-4 text-center text-dark fw-bold">Diabetes Checkup</h5>
+                        </a>
+                        <p>Lorem ipsum dolor sit Lorem ipsum dolor sit amet dolor sit amet amet dolor sit amet dolor.
+                        </p>
+                        <h6 class="ms-3 "><i class="bi bi-currency-rupee fw-lighter"></i><span
+                                class="text-decoration-line-through fw-lighter ">999</span><span
+                                class="ms-3 fw-bold fs-5"><i class="bi bi-currency-rupee"></i>750</span></h6>
+                    </div>
+                    <div class="pe-2">
+                        <img src="./Logos/diabetise.webp" height="160px" width="150px" class="rounded-4" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="p-3">
+            <h3>Best Products For you😍 </h3>
+        </div>
+        <div class="d-flex flex-wrap my-3 justify-content-evenly">
+
+            <div class=" border border-1 border-dark rounded-4 bg-light" style="height: 250px; width:400px; ">
+                <div class=" ps-3">
+                    <span class="btn ms-2 rounded-4 btn-info" style="">73% OFF</span>
+                    <img src="./Logos/special-offer.png" class="" height="80px" style="margin-left: 150px;" />
+                </div>
+                <div class=" d-flex justify-content-evenly">
+                    <div class="ms-3">
+                        <h5>Blood Pressure Monitor</h5>
+                        <p>Lorem ipsum dolor sit Lorem ipsum dolor sit amet.</p>
+                        <h6 class="ms-3 fw-lighter text-decoration-line-through"><i
+                                class="bi bi-currency-rupee fw-lighter"></i>999</h6>
+                        <h5 class="ms-3"><i class="bi bi-currency-rupee"></i>450</h5>
+                    </div>
+                    <div class="p-2">
+                        <img src="./Logos/Blood-Pressure-Monitor.png" height="140px" width="150px" class="rounded-4"
+                            alt="...">
+                    </div>
+                </div>
+            </div>
+
+            <div class=" border border-1 border-dark rounded-4 bg-light" style="height: 250px; width:400px; ">
+                <div class=" ps-3">
+                    <span class="btn ms-2 rounded-4 btn-info" style="">73% OFF</span>
+                    <img src="./Logos/special-offer.png" class="" height="80px" style="margin-left: 150px;" />
+                </div>
+                <div class=" d-flex justify-content-evenly">
+                    <div class="ms-3">
+                        <h4>Vicks Vaporub</h4>
+                        <p>Lorem ipsum dolor sit Lorem ipsum dolor sit amet.</p>
+                        <h6 class="ms-3 fw-lighter text-decoration-line-through"><i
+                                class="bi bi-currency-rupee fw-lighter"></i>999</h6>
+                        <h5 class="ms-3"><i class="bi bi-currency-rupee"></i>450</h5>
+                    </div>
+                    <div class="p-2">
+                        <img src="./Logos/inheler.webp" height="140px" width="150px" class="rounded-4" alt="...">
+                    </div>
+                </div>
+            </div>
+
+            <div class=" border border-1 border-dark rounded-4 bg-light" style="height: 250px; width:400px; ">
+                <div class=" ps-3">
+                    <span class="btn ms-2 rounded-4 btn-info" style="">73% OFF</span>
+                    <img src="./Logos/special-offer.png" class="" height="80px" style="margin-left: 150px;" />
+                </div>
+                <div class=" d-flex justify-content-evenly">
+                    <div class="ms-3">
+                        <h4>Maxtra Syrup</h4>
+                        <p>Lorem ipsum dolor sit Lorem ipsum dolor sit amet.</p>
+                        <h6 class="ms-3 fw-lighter text-decoration-line-through"><i
+                                class="bi bi-currency-rupee fw-lighter"></i>999</h6>
+                        <h5 class="ms-3"><i class="bi bi-currency-rupee"></i>450</h5>
+                    </div>
+                    <div class="p-2">
+                        <img src="./Logos/cyrup.webp" height="140px" width="150px" class="rounded-4" alt="...">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 
     <script src="customer.js"></script>
     <script src="admin.js"></script>

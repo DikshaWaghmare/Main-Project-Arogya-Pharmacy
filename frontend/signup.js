@@ -66,5 +66,7 @@ function reset() {
   document.getElementById("age").value = "";
   document.getElementById("mobileNo").value = "";
   document.getElementById("address").value = "";
-  document.getElementById("msg").innerHTML ="";
+}
+function cleanMsg(){
+  document.getElementById("msg").innerHTML="";
 }
